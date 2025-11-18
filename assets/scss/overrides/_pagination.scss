@@ -1,0 +1,29 @@
+// Pagination Overrides
+.page-item {
+  &.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: transparent !important;
+  }
+  
+  &.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #00a470;
+    border-color: #00a470 !important;
+    border-radius: 5px !important;
+  }
+}
+
+.page-link {
+  border-color: transparent !important;
+  
+  &:hover {
+    z-index: 2;
+    color: #00a470;
+    background-color: #FFF !important;
+    border-color: transparent !important;
+  }
+}
+

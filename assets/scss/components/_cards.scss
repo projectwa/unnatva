@@ -1,0 +1,148 @@
+// Card Components
+.courses-item {
+  .courses-overlay {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  
+  &:hover .courses-overlay {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+.certificate {
+  .certificate-item {
+    position: relative;
+    margin-bottom: 10px;
+    height: 100% !important;
+    border: 2px solid #000 !important; // Black frame around each card
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .certificate-item.bg-dark {
+    background-color: #000 !important; // Black background for the card container
+  }
+  
+  .certificate-img {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    padding: 0.5rem;
+    background: #fff !important; // White background for image area
+    
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+  
+  .certificate-text {
+    position: relative;
+    width: 100%;
+    padding: 15px 15px 10px 15px;
+    text-align: center;
+    border-radius: 0;
+    transition: 0.5s;
+    background: #000 !important; // Black background for text section
+    
+    &.bg-dark {
+      background-color: #000 !important; // Ensure black background
+    }
+    
+    // Override any inherited text colors - highest specificity
+    * {
+      color: #ffffff !important;
+    }
+    
+    h2 {
+      color: #ffffff !important;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    
+    // More specific selector to override .about105 .welcome p
+    p,
+    &.bg-dark p,
+    .certificate-text p {
+      margin: 0 !important;
+      color: #ffffff !important;
+      font-size: 10px !important;
+      line-height: 170% !important;
+      font-weight: 400 !important;
+    }
+    
+    // Ensure all text elements are white
+    span, div, a {
+      color: #ffffff !important;
+    }
+  }
+  
+  // Even more specific override for certificate text inside about105
+  .about105 .certificate .certificate-text p {
+    color: #ffffff !important;
+  }
+}
+
+.certificates-sec {
+  position: relative;
+  width: 100%;
+  padding: 45px 0 15px 0;
+}
+
+.sdg-box {
+  background-color: #E9EBF8;
+  border-radius: 15px;
+  padding: 25px;
+  height: 256px;
+  position: relative;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  
+  &:hover {
+    transform: translateY(5px);
+    box-shadow: none;
+  }
+}
+
+.sdg-number {
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.sdg-title {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.sdg-icon {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  
+  img {
+    max-width: 108px;
+  }
+}
+
+.sdg-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+

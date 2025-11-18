@@ -1,0 +1,21 @@
+.topbar-cms {
+  background-color: var(--cms-white);
+  border-bottom: 1px solid var(--cms-gray-200);
+  box-shadow: var(--cms-shadow-sm);
+  padding: var(--cms-spacing-md) 0;
+  margin-left: 250px; /* Account for sidebar width */
+  z-index: 999;
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  font-weight: var(--cms-font-weight-semibold);
+  font-size: var(--cms-font-size-lg);
+  color: var(--cms-gray-800);
+  text-decoration: none;
+}
+
+.topbar-brand:hover {
+  color: var(--cms-primary);
+}

@@ -1,0 +1,360 @@
+// About Page Styles
+// Override body color for about page - set all text to #333333
+body.act_about {
+  color: #333333 !important;
+  
+  p, h1, h2, h3, h4, h5, h6, span, div, li, td, th {
+    color: #333333 !important;
+  }
+  
+  // Exceptions for specific elements that should remain their original colors
+  .about-content,
+  .about-content * {
+    color: #ffffff !important; // Keep white text in colored boxes
+  }
+  
+  .certificate-text,
+  .certificate-text * {
+    color: #ffffff !important; // Keep white text in certificate cards
+  }
+}
+
+.about105 {
+  position: relative;
+  padding: 60px 0 30px 0;
+  margin-bottom: 0px;
+  background: url(../../img/about-bg.jpg) center center / cover no-repeat;
+  
+  .row {
+    margin-bottom: 30px;
+  }
+  
+  .welcome {
+    max-width: 900px;
+    text-align: center;
+    
+    h2 {
+      color: #3f69aa;
+      font-size: 35px;
+      font-weight: 700;
+      padding-bottom: 15px;
+      
+      &:after {
+        position: absolute;
+        content: "";
+        width: 50px;
+        height: 3px;
+        top: 50px;
+        left: calc(50% - 25px);
+        background: #3f69aa;
+      }
+    }
+    
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150% !important;
+      letter-spacing: 0%;
+      text-align: center;
+      vertical-align: middle;
+      color: #000 !important;
+      
+      // Don't apply black color to certificate text
+      .certificate-text & {
+        color: #ffffff !important;
+      }
+    }
+  }
+  
+  .about-col {
+    height: inherit;
+    background: #3f69aa;
+    
+    &:nth-child(2) {
+      background: #222222;
+    }
+  }
+  
+  .about-content {
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    
+    i {
+      color: #ffffff;
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      color: #ffffff;
+      font-size: 30px;
+      font-weight: 600;
+    }
+    
+    p {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 300;
+    }
+  }
+}
+
+#about-sec {
+  .counter-bg {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    max-width: 448px;
+    margin: 0 auto;
+    
+    .counterNo {
+      font-weight: 600;
+      font-size: 21px;
+      line-height: 30px;
+      letter-spacing: 0%;
+      color: #333;
+      
+      @media (max-width: 567px) {
+        font-weight: 600;
+        font-size: 28px;
+      }
+      
+      @media (max-width: 468px) {
+        font-weight: 600;
+        font-size: 18px;
+      }
+      
+      @media (min-width: 568px) and (max-width: 992px) {
+        font-weight: 600;
+        font-size: 22px;
+      }
+      
+      @media (min-width: 992px) and (max-width: 1200px) {
+        font-weight: 600;
+        font-size: 24px;
+      }
+    }
+    
+    .counterText {
+      font-weight: 400;
+      font-size: 21px !important;
+      line-height: 150%;
+      letter-spacing: 0%;
+      color: #333;
+      transition: color 0.3s ease;
+      
+      @media (max-width: 567px) {
+        font-weight: 400;
+        font-size: 18px !important;
+      }
+      
+      @media (max-width: 468px) {
+        font-weight: 400;
+        font-size: 16px !important;
+      }
+      
+      @media (min-width: 568px) and (max-width: 992px) {
+        font-weight: 500 !important;
+        font-size: 17px !important;
+      }
+      
+      @media (min-width: 992px) and (max-width: 1200px) {
+        font-weight: 500 !important;
+        font-size: 18px !important;
+      }
+    }
+    
+    .d-flex {
+      color: #333333 !important;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      
+      div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 18px;
+        font-weight: 500;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        color: #333333 !important;
+      }
+    }
+  }
+  
+  ul {
+    width: 100%;
+    max-width: 450px;
+  }
+}
+
+#based-trainings {
+  h4 {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 150%;
+    color: #333333 !important;
+    
+    @media (max-width: 992px) {
+      font-size: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+}
+
+.team-items {
+  margin: -0.75rem;
+}
+
+.team-item {
+  padding: 0.75rem;
+  
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    transition: 0.5s;
+    z-index: -1;
+  }
+  
+  &:hover::after {
+    height: 100%;
+    background: var(--primary);
+  }
+  
+  .team-social {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  
+  &:hover .team-social {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+.our-team {
+  h3 {
+    font-size: 1.8rem;
+    line-height: 1.4;
+  }
+  
+  img {
+    object-fit: cover;
+    height: auto;
+  }
+}
+
+.team-desc {
+  min-height: 100%;
+  background: #B0E3D3;
+}
+
+.destination {
+  .tab-class {
+    .nav-item {
+      padding: 0 0 20px 0;
+      
+      a {
+        border: 0;
+        background: var(--white);
+        color: var(--dark);
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0%;
+        padding: 10px 20px;
+        border-radius: 30px;
+        transition: 0.5s;
+        
+        &.active {
+          background: var(--bs-primary) !important;
+          
+          span {
+            color: var(--bs-white) !important;
+          }
+        }
+      }
+    }
+    
+    .tab-content {
+      .tab-pane {
+        .destination-img {
+          position: relative;
+          overflow: hidden;
+          max-height: 175px;
+          overflow: hidden;
+          z-index: 1;
+          
+          .destination-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            z-index: 3;
+            transition: 0.5s;
+          }
+          
+          .search-icon {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            display: flex;
+            justify-content: end;
+            padding: 20px 20px 0 0;
+            transition: 0.5s;
+            
+            a i {
+              opacity: 0;
+              transition: 0.5s;
+            }
+          }
+          
+          img {
+            transition: 0.5s;
+          }
+          
+          &:hover {
+            .search-icon {
+              background: rgba(19, 53, 123, 0.4);
+              
+              a i {
+                opacity: 1;
+              }
+            }
+            
+            .destination-overlay {
+              bottom: 0;
+            }
+            
+            img {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

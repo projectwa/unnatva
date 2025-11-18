@@ -1,0 +1,72 @@
+.cms-paginated-list {
+  background-color: var(--cms-white);
+  border-radius: var(--cms-radius-lg);
+  padding: var(--cms-spacing-lg);
+}
+
+.cms-list-filters {
+  max-width: 400px;
+}
+
+.cms-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--cms-spacing-xl);
+}
+
+.cms-pagination-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--cms-spacing-lg);
+  flex-wrap: wrap;
+  gap: var(--cms-spacing-md);
+}
+
+.cms-pagination-info {
+  color: var(--cms-gray-600);
+  font-size: var(--cms-font-size-sm);
+}
+
+.cms-pagination {
+  margin: 0;
+}
+
+.cms-pagination .page-link {
+  color: var(--cms-primary);
+  border-color: var(--cms-gray-300);
+  border-radius: var(--cms-radius-md);
+  margin: 0 var(--cms-spacing-xs);
+  padding: var(--cms-spacing-sm) var(--cms-spacing-md);
+  font-size: var(--cms-font-size-base);
+  transition: var(--cms-transition);
+}
+
+.cms-pagination .page-link:hover {
+  background-color: var(--cms-primary-lighter);
+  border-color: var(--cms-primary);
+  color: var(--cms-white);
+  z-index: 2;
+}
+
+.cms-pagination .page-item.active .page-link {
+  background-color: var(--cms-primary);
+  border-color: var(--cms-primary);
+  color: var(--cms-white);
+  z-index: 3;
+}
+
+.cms-pagination .page-item.disabled .page-link {
+  color: var(--cms-gray-400);
+  pointer-events: none;
+  background-color: var(--cms-gray-100);
+  border-color: var(--cms-gray-300);
+}
+
+.cms-custom-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cms-spacing-sm);
+}
+

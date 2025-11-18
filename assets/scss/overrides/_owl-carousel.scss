@@ -1,0 +1,76 @@
+// Owl Carousel Overrides
+.owl-carousel {
+  .owl-stage {
+    display: flex;
+  }
+  
+  .owl-item {
+    display: flex;
+    height: auto;
+    
+    > div {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  .owl-dots {
+    text-align: center;
+    margin-top: 30px;
+    display: block !important;
+    
+    .owl-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 4px 6px;
+      background: #ccc;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      
+      &.active {
+        background: var(--primary);
+        // Keep same size, just change color
+      }
+      
+      &:hover {
+        background: var(--secondary);
+      }
+    }
+  }
+}
+
+// Testimonial carousel specific styling
+.testimonial-carousel {
+  .owl-dots {
+    margin-top: 40px;
+    
+    .owl-dot {
+      width: 14px !important;
+      height: 14px !important;
+      margin: 0 8px;
+      background: #d0d0d0;
+      border-radius: 50% !important;
+      transition: background 0.3s ease;
+      cursor: pointer;
+      
+      &.active {
+        background: var(--primary) !important;
+        width: 14px !important;
+        height: 14px !important;
+        border-radius: 50% !important;
+      }
+      
+      &:hover {
+        background: var(--secondary);
+      }
+    }
+  }
+}
+
+.owl-dot.active {
+  background: #77a540;
+}
+

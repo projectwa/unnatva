@@ -1,0 +1,33 @@
+// Initiatives Pages Styles (Entrepreneurship Development, Skill Development, Education, Women Empowerment)
+// Override body color for initiatives pages - set all text to #333333
+body.act_ourInitiatives {
+  color: #333333 !important;
+  
+  p, h1, h2, h3, h4, h5, h6, span, div, li, td, th {
+    color: #333333 !important;
+  }
+  
+  // Exceptions for specific elements that should remain their original colors
+  .testimonial-item,
+  .testimonial-item * {
+    // Keep original colors in testimonial items
+  }
+  
+  // Section headings with spans might have different colors
+  .section-heading {
+    span {
+      color: var(--primary) !important; // Keep primary color for highlighted spans
+    }
+  }
+  
+  // Icon descriptions
+  .icon-description {
+    color: #333333 !important;
+  }
+  
+  // Text primary class should remain primary color
+  .text-primary {
+    color: var(--primary) !important;
+  }
+}
+

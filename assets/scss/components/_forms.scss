@@ -1,0 +1,125 @@
+// Form Components
+.form-section {
+  background-color: var(--bs-light);
+  padding: 40px;
+  background: url(../../img/enquiry-img.webp) top right no-repeat;
+  background-size: 50%;
+  
+  h3 {
+    font-weight: 700;
+    color: #064d2d;
+    margin-bottom: 25px;
+  }
+  
+  p {
+    font-weight: 600;
+    color: #5C5C5C;
+  }
+  
+  form {
+    width: 60%;
+    position: relative;
+    z-index: 3;
+  }
+  
+  label {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .form-control {
+    margin-bottom: 15px;
+    border-radius: 6px;
+  }
+  
+  @media (max-width: 992px) {
+    form {
+      width: 100%;
+    }
+    
+    h3 {
+      margin-bottom: 25px;
+      width: 40%;
+    }
+  }
+}
+
+.impact-options {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  
+  .form-check-label.small {
+    font-size: 12px;
+  }
+}
+
+.submit-btn {
+  background: #009c64;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-weight: 500;
+  
+  i {
+    margin-left: 8px;
+  }
+}
+
+.upload-box {
+  position: relative;
+  border: 2px dashed #33333357;
+  border-style: dashed;
+  border-radius: 8px;
+  background-color: #E6F6F1;
+  padding: 15px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  max-width: 72%;
+  
+  @media (max-width: 568px) {
+    max-width: 100%;
+  }
+  
+  p {
+    color: #C0C0C0;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .upload-icon {
+    width: auto;
+    opacity: 0.8;
+  }
+  
+  &:hover {
+    background-color: #d7f0e8;
+    border-color: #222;
+  }
+}
+
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#popupModalapply .form-section {
+  background: url(../../img/apply-now-form-img.webp) bottom right no-repeat,
+              linear-gradient(to bottom, #ffffff 90.2%, #B0E3D3 90%);
+  background-size: 50%;
+  
+  @media (max-width: 992px) {
+    h3 {
+      margin-bottom: 25px;
+      width: 80%;
+    }
+    
+    background-size: 60%;
+  }
+}
+

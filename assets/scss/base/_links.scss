@@ -1,0 +1,9 @@
+// Link Styles
+a {
+  color: var(--secondary);
+  
+  &:hover {
+    color: var(--primary);
+  }
+}
+

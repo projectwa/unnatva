@@ -1,0 +1,75 @@
+.job-application-form .modal {
+  z-index: 1055;
+}
+
+.job-application-form .modal-backdrop {
+  z-index: 1050;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.job-application-form .modal-dialog {
+  z-index: 1055;
+}
+
+.job-application-form .form-section {
+  padding: 2rem;
+  position: relative;
+}
+
+.job-application-form .form-control {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.job-application-form .upload-box {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  position: relative;
+}
+
+.job-application-form .upload-box:hover {
+  border-color: #00a470;
+}
+
+.job-application-form .upload-box .file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.job-application-form .upload-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0.5rem 0;
+}
+
+.job-application-form .alert {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.job-application-form .alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.job-application-form .alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+

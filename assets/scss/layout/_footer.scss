@@ -1,0 +1,96 @@
+// Footer Styles
+.footer {
+  background: #8ad5bd !important;
+  color: var(--dark) !important;
+  
+  p {
+    color: var(--dark) !important;
+  }
+  
+  .footer-title {
+    font-weight: 600;
+    font-size: 36px !important;
+    line-height: 150%;
+    letter-spacing: 0%;
+    
+    small {
+      display: block;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: 0%;
+    }
+  }
+  
+  // Match address and email font size to the small text
+  p {
+    font-size: 16px !important;
+    line-height: 150% !important;
+    font-weight: 400 !important;
+  }
+  
+  .social-links a.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 31px;
+    background-color: var(--primary);
+    color: #fff !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    border: none;
+    
+    // Ensure "Contact Us" button text is white
+    &.rounded-btn {
+      width: auto;
+      min-width: 120px;
+      padding: 8px 20px;
+      height: 44px;
+      
+      span,
+      .arrow {
+        color: #fff !important;
+      }
+    }
+  }
+  
+  > a.social-btn:hover {
+    height: 50px;
+    padding: 12px 30px;
+    color: #fff;
+    background-color: var(--primary);
+    transform: scale(1.1);
+  }
+  
+  .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: var(--dark);
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: 0.3s;
+    
+    &:hover {
+      color: #767676;
+      box-shadow: none;
+    }
+  }
+}
+
+.copyright {
+  background: #00452f;
+  
+  a {
+    color: var(--light);
+    
+    &:hover {
+      color: var(--secondary);
+    }
+  }
+}
+

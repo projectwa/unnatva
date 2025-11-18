@@ -1,0 +1,33 @@
+// Contact Page Styles
+
+#contact-section {
+  background: linear-gradient(to bottom, #EBEBEB 65%, #FFFFFF 50%);
+  
+  @media (max-width: 992px) {
+    background: linear-gradient(to bottom, #EBEBEB 70%, #FFFFFF 50%);
+  }
+  
+  @media (max-width: 1200px) {
+    background: linear-gradient(to bottom, #EBEBEB 65.5%, #FFFFFF 50%);
+  }
+  
+  h3 {
+    font-size: 47px;
+    color: #00452F;
+    line-height: 150%;
+    
+    @media (max-width: 992px) {
+      font-size: 35px;
+    }
+  }
+  
+  .contact-details {
+    width: fit-content;
+  }
+  
+  .map-container {
+    overflow: hidden;
+    border-radius: 10px;
+  }
+}
+

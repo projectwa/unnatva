@@ -1,0 +1,8 @@
+.cms-list-item {
+  transition: var(--cms-transition);
+}
+
+.cms-list-item:hover {
+  box-shadow: var(--cms-shadow-md);
+  transform: translateY(-2px);
+}

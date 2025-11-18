@@ -1,0 +1,22 @@
+# Minimal .htaccess for testing
+# Rename this to .htaccess if you want to test with minimal rules
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Allow direct access to public/ directory
+    RewriteCond %{REQUEST_URI} ^/public/ [NC]
+    RewriteRule ^ - [L]
+    
+    # Allow direct access to asset directories
+    RewriteCond %{REQUEST_URI} ^/(img|assets|js|lib|css|icon)/ [NC]
+    RewriteRule ^ - [L]
+    
+    # Allow direct access to existing files
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+    
+    # Route everything else to public/index.php
+    RewriteRule ^(.*)$ public/index.php/$1 [L]
+</IfModule>
+

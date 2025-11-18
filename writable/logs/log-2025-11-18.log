@@ -1,0 +1,701 @@
+ERROR - 2025-11-18 05:41:35 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 05:41:35 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 05:41:35 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 05:41:35 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 05:41:35 --> Auth check - All cookies: []
+ERROR - 2025-11-18 05:41:35 --> Auth check - Session initialized, ID: 5a48a3c7bf5ebb5ed5e7fe6a31df8af9
+ERROR - 2025-11-18 05:41:35 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 05:41:35 --> Auth check - Full session data: {"__ci_last_regenerate":1763444495}
+ERROR - 2025-11-18 05:41:35 --> Auth check - Session token: missing
+ERROR - 2025-11-18 05:41:35 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 05:41:35 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 06:10:22 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 06:10:22 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 06:10:22 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:10:22 --> Auth check - Session ID from cookie: 5a48a3c7bf5ebb5ed5e7fe6a31df8af9
+ERROR - 2025-11-18 06:10:22 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 06:10:22 --> Auth check - Session initialized, ID: 512aebbc931d916720b83722aeb981a7
+ERROR - 2025-11-18 06:10:22 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 06:10:22 --> Auth check - Full session data: {"__ci_last_regenerate":1763446222}
+ERROR - 2025-11-18 06:10:22 --> Auth check - Session token: missing
+ERROR - 2025-11-18 06:10:22 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 06:10:22 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 06:10:45 --> ContentBlockModel::getByType - Type: whats-happening, Found: 3
+ERROR - 2025-11-18 06:10:45 --> ContentBlockModel::getByType - Block ID: 1, Title: I never imagined I could do this
+ERROR - 2025-11-18 06:10:45 --> ContentBlockModel::getByType - Block ID: 2, Title: Meet the Women Shaping India's Healthcare Support Systems
+ERROR - 2025-11-18 06:10:45 --> ContentBlockModel::getByType - Block ID: 3, Title: What Does Empowerment Look Like?
+ERROR - 2025-11-18 06:11:19 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 06:11:19 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 06:11:19 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:11:19 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 06:11:19 --> Auth check - All cookies: []
+ERROR - 2025-11-18 06:11:19 --> Auth check - Session initialized, ID: 20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 06:11:19 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 06:11:19 --> Auth check - Full session data: {"__ci_last_regenerate":1763446279}
+ERROR - 2025-11-18 06:11:19 --> Auth check - Session token: missing
+ERROR - 2025-11-18 06:11:19 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 06:11:19 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 06:20:19 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 06:20:19 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 06:20:19 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:20:19 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 06:20:19 --> Auth check - All cookies: []
+ERROR - 2025-11-18 06:20:19 --> Auth check - Session initialized, ID: 1e62a61bfd030464d8562b842b23b8b1
+ERROR - 2025-11-18 06:20:19 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 06:20:19 --> Auth check - Full session data: {"__ci_last_regenerate":1763446819}
+ERROR - 2025-11-18 06:20:19 --> Auth check - Session token: missing
+ERROR - 2025-11-18 06:20:19 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 06:20:19 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 06:20:47 --> reCAPTCHA secret key not configured in environment
+ERROR - 2025-11-18 06:22:13 --> reCAPTCHA secret key not configured in environment
+ERROR - 2025-11-18 06:22:24 --> Login - Token stored: 07cad8fdaed0e5c60e53...
+ERROR - 2025-11-18 06:22:24 --> Login - Session ID: 1e62a61bfd030464d8562b842b23b8b1
+ERROR - 2025-11-18 06:22:24 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:22:24 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 06:22:24 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_session1e62a61bfd030464d8562b842b23b8b1
+ERROR - 2025-11-18 06:22:24 --> Login - Session file exists: YES
+ERROR - 2025-11-18 06:22:24 --> Login - Session path writable: YES
+ERROR - 2025-11-18 06:22:24 --> Login - Session files found: 26
+ERROR - 2025-11-18 06:22:24 --> Login - Session files: ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42, ci_session279a734c696ea6c3fe15eff15806c516
+ERROR - 2025-11-18 06:22:24 --> Auth check - Token from header: 07cad8fdaed0e5c60e53...
+ERROR - 2025-11-18 06:22:24 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 06:22:24 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:22:24 --> Auth check - Session ID from cookie: 1e62a61bfd030464d8562b842b23b8b1
+ERROR - 2025-11-18 06:22:24 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 06:22:24 --> Auth check - Session initialized, ID: 1e62a61bfd030464d8562b842b23b8b1
+ERROR - 2025-11-18 06:22:24 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:22:24 --> Auth check - Full session data: {"__ci_last_regenerate":1763446819,"admin_token":"07cad8fdaed0e5c60e53bc9eed8c1f27bc0ef1619ed084f47f48ad7a2080cb2d","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 06:22:24 --> Auth check - Session token: 07cad8fdaed0e5c60e53...
+ERROR - 2025-11-18 06:22:24 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 06:22:24 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 06:22:24 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 06:30:50 --> Auth check - Token from header: 07cad8fdaed0e5c60e53...
+ERROR - 2025-11-18 06:30:50 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 06:30:50 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:30:50 --> Auth check - Session ID from cookie: 06dd2d4f279e1cd3d5646be02ac2e911
+ERROR - 2025-11-18 06:30:50 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 06:30:50 --> Auth check - Session initialized, ID: 9159444ac0a448bd175c17bef4e582cf
+ERROR - 2025-11-18 06:30:50 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:30:50 --> Auth check - Full session data: {"__ci_last_regenerate":1763447450,"admin_token":"07cad8fdaed0e5c60e53bc9eed8c1f27bc0ef1619ed084f47f48ad7a2080cb2d","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 06:30:50 --> Auth check - Session token: 07cad8fdaed0e5c60e53...
+ERROR - 2025-11-18 06:30:50 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 06:30:50 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 06:30:50 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 06:32:42 --> Auth check - Token from header: 07cad8fdaed0e5c60e53...
+ERROR - 2025-11-18 06:32:42 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 06:32:42 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:32:42 --> Auth check - Session ID from cookie: 9159444ac0a448bd175c17bef4e582cf
+ERROR - 2025-11-18 06:32:42 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 06:32:42 --> Auth check - Session initialized, ID: 9159444ac0a448bd175c17bef4e582cf
+ERROR - 2025-11-18 06:32:42 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:32:42 --> Auth check - Full session data: {"__ci_last_regenerate":1763447450,"admin_token":"07cad8fdaed0e5c60e53bc9eed8c1f27bc0ef1619ed084f47f48ad7a2080cb2d","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 06:32:42 --> Auth check - Session token: 07cad8fdaed0e5c60e53...
+ERROR - 2025-11-18 06:32:42 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 06:32:42 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 06:32:42 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 06:38:41 --> Auth check - Token from header: 07cad8fdaed0e5c60e53...
+ERROR - 2025-11-18 06:38:41 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 06:38:41 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:38:41 --> Auth check - Session ID from cookie: 289440f236a4c62989faaa948f24bc5e
+ERROR - 2025-11-18 06:38:41 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 06:38:41 --> Auth check - Session initialized, ID: 289440f236a4c62989faaa948f24bc5e
+ERROR - 2025-11-18 06:38:41 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:38:41 --> Auth check - Full session data: {"__ci_last_regenerate":1763447764,"admin_token":"07cad8fdaed0e5c60e53bc9eed8c1f27bc0ef1619ed084f47f48ad7a2080cb2d","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 06:38:41 --> Auth check - Session token: 07cad8fdaed0e5c60e53...
+ERROR - 2025-11-18 06:38:41 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 06:38:41 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 06:38:41 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 06:39:39 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 06:39:39 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 06:39:39 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:39:39 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 06:39:39 --> Auth check - All cookies: []
+ERROR - 2025-11-18 06:39:39 --> Auth check - Session initialized, ID: 5ca1107cccc045e85762ef03f6629566
+ERROR - 2025-11-18 06:39:39 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 06:39:39 --> Auth check - Full session data: {"__ci_last_regenerate":1763447979}
+ERROR - 2025-11-18 06:39:39 --> Auth check - Session token: missing
+ERROR - 2025-11-18 06:39:39 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 06:39:39 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 06:39:46 --> Login - Token stored: c1b491e6b50ec6d5fb90...
+ERROR - 2025-11-18 06:39:46 --> Login - Session ID: 5ca1107cccc045e85762ef03f6629566
+ERROR - 2025-11-18 06:39:46 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:39:46 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 06:39:46 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_session5ca1107cccc045e85762ef03f6629566
+ERROR - 2025-11-18 06:39:46 --> Login - Session file exists: YES
+ERROR - 2025-11-18 06:39:46 --> Login - Session path writable: YES
+ERROR - 2025-11-18 06:39:46 --> Login - Session files found: 30
+ERROR - 2025-11-18 06:39:46 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 06:39:46 --> Auth check - Token from header: c1b491e6b50ec6d5fb90...
+ERROR - 2025-11-18 06:39:46 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 06:39:46 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:39:46 --> Auth check - Session ID from cookie: 5ca1107cccc045e85762ef03f6629566
+ERROR - 2025-11-18 06:39:46 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 06:39:46 --> Auth check - Session initialized, ID: 5ca1107cccc045e85762ef03f6629566
+ERROR - 2025-11-18 06:39:46 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:39:46 --> Auth check - Full session data: {"__ci_last_regenerate":1763447979,"admin_token":"c1b491e6b50ec6d5fb904194d376901ea3e257162b351ccb7448be58747eef52","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 06:39:46 --> Auth check - Session token: c1b491e6b50ec6d5fb90...
+ERROR - 2025-11-18 06:39:46 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 06:39:46 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 06:39:46 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 06:41:55 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 06:41:55 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 06:41:55 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:41:55 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 06:41:55 --> Auth check - All cookies: []
+ERROR - 2025-11-18 06:41:55 --> Auth check - Session initialized, ID: a3c9401823b0d78f7acf00ae5164c55b
+ERROR - 2025-11-18 06:41:55 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 06:41:55 --> Auth check - Full session data: {"__ci_last_regenerate":1763448115}
+ERROR - 2025-11-18 06:41:55 --> Auth check - Session token: missing
+ERROR - 2025-11-18 06:41:55 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 06:41:55 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 06:42:03 --> Login - Token stored: 7bad37925746e286acdf...
+ERROR - 2025-11-18 06:42:03 --> Login - Session ID: a3c9401823b0d78f7acf00ae5164c55b
+ERROR - 2025-11-18 06:42:03 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:42:03 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 06:42:03 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_sessiona3c9401823b0d78f7acf00ae5164c55b
+ERROR - 2025-11-18 06:42:03 --> Login - Session file exists: YES
+ERROR - 2025-11-18 06:42:03 --> Login - Session path writable: YES
+ERROR - 2025-11-18 06:42:03 --> Login - Session files found: 31
+ERROR - 2025-11-18 06:42:03 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 06:42:03 --> Auth check - Token from header: 7bad37925746e286acdf...
+ERROR - 2025-11-18 06:42:03 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 06:42:03 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:42:03 --> Auth check - Session ID from cookie: a3c9401823b0d78f7acf00ae5164c55b
+ERROR - 2025-11-18 06:42:03 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 06:42:03 --> Auth check - Session initialized, ID: a3c9401823b0d78f7acf00ae5164c55b
+ERROR - 2025-11-18 06:42:03 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:42:03 --> Auth check - Full session data: {"__ci_last_regenerate":1763448115,"admin_token":"7bad37925746e286acdf73ecdb4e8e38e845f17de76d0270992486a110287048","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 06:42:03 --> Auth check - Session token: 7bad37925746e286acdf...
+ERROR - 2025-11-18 06:42:03 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 06:42:03 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 06:42:03 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 06:42:59 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 06:42:59 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 06:42:59 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:42:59 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 06:42:59 --> Auth check - All cookies: []
+ERROR - 2025-11-18 06:42:59 --> Auth check - Session initialized, ID: 8274c7ddcf93125066ad11ebcd4e2431
+ERROR - 2025-11-18 06:42:59 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 06:42:59 --> Auth check - Full session data: {"__ci_last_regenerate":1763448179}
+ERROR - 2025-11-18 06:42:59 --> Auth check - Session token: missing
+ERROR - 2025-11-18 06:42:59 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 06:42:59 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 06:43:07 --> Login - Token stored: 7b819d500146e9bdac04...
+ERROR - 2025-11-18 06:43:07 --> Login - Session ID: 8274c7ddcf93125066ad11ebcd4e2431
+ERROR - 2025-11-18 06:43:07 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:43:07 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 06:43:07 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_session8274c7ddcf93125066ad11ebcd4e2431
+ERROR - 2025-11-18 06:43:07 --> Login - Session file exists: YES
+ERROR - 2025-11-18 06:43:07 --> Login - Session path writable: YES
+ERROR - 2025-11-18 06:43:07 --> Login - Session files found: 32
+ERROR - 2025-11-18 06:43:07 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 06:43:07 --> Auth check - Token from header: 7b819d500146e9bdac04...
+ERROR - 2025-11-18 06:43:07 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 06:43:07 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:43:07 --> Auth check - Session ID from cookie: 8274c7ddcf93125066ad11ebcd4e2431
+ERROR - 2025-11-18 06:43:07 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 06:43:07 --> Auth check - Session initialized, ID: 8274c7ddcf93125066ad11ebcd4e2431
+ERROR - 2025-11-18 06:43:07 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:43:07 --> Auth check - Full session data: {"__ci_last_regenerate":1763448179,"admin_token":"7b819d500146e9bdac042dd00d492c22e71bb0369beb715adca0fb48c5b3624b","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 06:43:07 --> Auth check - Session token: 7b819d500146e9bdac04...
+ERROR - 2025-11-18 06:43:07 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 06:43:07 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 06:43:07 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 06:45:19 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 06:45:19 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 06:45:19 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:45:19 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 06:45:19 --> Auth check - All cookies: []
+ERROR - 2025-11-18 06:45:19 --> Auth check - Session initialized, ID: 2f5165788451cc02fd9bd0712732dc88
+ERROR - 2025-11-18 06:45:19 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 06:45:19 --> Auth check - Full session data: {"__ci_last_regenerate":1763448319}
+ERROR - 2025-11-18 06:45:19 --> Auth check - Session token: missing
+ERROR - 2025-11-18 06:45:19 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 06:45:19 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 06:45:26 --> Login - Token stored: dd8ec819a55d35e42924...
+ERROR - 2025-11-18 06:45:26 --> Login - Session ID: 2f5165788451cc02fd9bd0712732dc88
+ERROR - 2025-11-18 06:45:26 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:45:26 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 06:45:26 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_session2f5165788451cc02fd9bd0712732dc88
+ERROR - 2025-11-18 06:45:26 --> Login - Session file exists: YES
+ERROR - 2025-11-18 06:45:26 --> Login - Session path writable: YES
+ERROR - 2025-11-18 06:45:26 --> Login - Session files found: 33
+ERROR - 2025-11-18 06:45:26 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 06:45:26 --> Auth check - Token from header: dd8ec819a55d35e42924...
+ERROR - 2025-11-18 06:45:26 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 06:45:26 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:45:26 --> Auth check - Session ID from cookie: 2f5165788451cc02fd9bd0712732dc88
+ERROR - 2025-11-18 06:45:26 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 06:45:26 --> Auth check - Session initialized, ID: 2f5165788451cc02fd9bd0712732dc88
+ERROR - 2025-11-18 06:45:26 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:45:26 --> Auth check - Full session data: {"__ci_last_regenerate":1763448319,"admin_token":"dd8ec819a55d35e429241a7d311eb8722ca48b0f620fe6b18da3adb705db4396","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 06:45:26 --> Auth check - Session token: dd8ec819a55d35e42924...
+ERROR - 2025-11-18 06:45:26 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 06:45:26 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 06:45:26 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 06:50:36 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 06:50:36 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 06:50:36 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:50:36 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 06:50:36 --> Auth check - All cookies: []
+ERROR - 2025-11-18 06:50:36 --> Auth check - Session initialized, ID: 2a530ee7d51d95213fba3665d885407f
+ERROR - 2025-11-18 06:50:36 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 06:50:36 --> Auth check - Full session data: {"__ci_last_regenerate":1763448636}
+ERROR - 2025-11-18 06:50:36 --> Auth check - Session token: missing
+ERROR - 2025-11-18 06:50:36 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 06:50:36 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 06:50:43 --> Login - Token stored: 2e7daf9253e5ddc89787...
+ERROR - 2025-11-18 06:50:43 --> Login - Session ID: 2a530ee7d51d95213fba3665d885407f
+ERROR - 2025-11-18 06:50:43 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:50:43 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 06:50:43 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_session2a530ee7d51d95213fba3665d885407f
+ERROR - 2025-11-18 06:50:43 --> Login - Session file exists: YES
+ERROR - 2025-11-18 06:50:43 --> Login - Session path writable: YES
+ERROR - 2025-11-18 06:50:43 --> Login - Session files found: 34
+ERROR - 2025-11-18 06:50:43 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 06:50:43 --> Auth check - Token from header: 2e7daf9253e5ddc89787...
+ERROR - 2025-11-18 06:50:43 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 06:50:43 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:50:43 --> Auth check - Session ID from cookie: 2a530ee7d51d95213fba3665d885407f
+ERROR - 2025-11-18 06:50:43 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 06:50:43 --> Auth check - Session initialized, ID: 2a530ee7d51d95213fba3665d885407f
+ERROR - 2025-11-18 06:50:43 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:50:43 --> Auth check - Full session data: {"__ci_last_regenerate":1763448636,"admin_token":"2e7daf9253e5ddc89787b6237d93238c92cf5dee55686cea74bed52648a4ae62","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 06:50:43 --> Auth check - Session token: 2e7daf9253e5ddc89787...
+ERROR - 2025-11-18 06:50:43 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 06:50:43 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 06:50:43 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 06:56:44 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 06:56:44 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 06:56:44 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:56:44 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 06:56:44 --> Auth check - All cookies: []
+ERROR - 2025-11-18 06:56:44 --> Auth check - Session initialized, ID: 2e2d893b07628275c61764f3a7a04dec
+ERROR - 2025-11-18 06:56:44 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 06:56:44 --> Auth check - Full session data: {"__ci_last_regenerate":1763449004}
+ERROR - 2025-11-18 06:56:44 --> Auth check - Session token: missing
+ERROR - 2025-11-18 06:56:44 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 06:56:44 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 06:56:53 --> Login - Token stored: 08833ffaf509345469e9...
+ERROR - 2025-11-18 06:56:53 --> Login - Session ID: 2e2d893b07628275c61764f3a7a04dec
+ERROR - 2025-11-18 06:56:53 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:56:53 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 06:56:53 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_session2e2d893b07628275c61764f3a7a04dec
+ERROR - 2025-11-18 06:56:53 --> Login - Session file exists: YES
+ERROR - 2025-11-18 06:56:53 --> Login - Session path writable: YES
+ERROR - 2025-11-18 06:56:53 --> Login - Session files found: 35
+ERROR - 2025-11-18 06:56:53 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 06:56:53 --> Auth check - Token from header: 08833ffaf509345469e9...
+ERROR - 2025-11-18 06:56:53 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 06:56:53 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 06:56:53 --> Auth check - Session ID from cookie: 2e2d893b07628275c61764f3a7a04dec
+ERROR - 2025-11-18 06:56:53 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 06:56:53 --> Auth check - Session initialized, ID: 2e2d893b07628275c61764f3a7a04dec
+ERROR - 2025-11-18 06:56:53 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 06:56:53 --> Auth check - Full session data: {"__ci_last_regenerate":1763449004,"admin_token":"08833ffaf509345469e9a72bb0a8d0898085e7cba0be505c264d707c45f5d6c6","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 06:56:53 --> Auth check - Session token: 08833ffaf509345469e9...
+ERROR - 2025-11-18 06:56:53 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 06:56:53 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 06:56:53 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 07:04:11 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:04:11 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 07:04:11 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:04:11 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 07:04:11 --> Auth check - All cookies: []
+ERROR - 2025-11-18 07:04:11 --> Auth check - Session initialized, ID: 97f7ba470e9875b936cd22157b377129
+ERROR - 2025-11-18 07:04:11 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 07:04:11 --> Auth check - Full session data: {"__ci_last_regenerate":1763449451}
+ERROR - 2025-11-18 07:04:11 --> Auth check - Session token: missing
+ERROR - 2025-11-18 07:04:11 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 07:04:11 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:04:17 --> Login - Token stored: 4b8651a891f697313034...
+ERROR - 2025-11-18 07:04:17 --> Login - Session ID: 97f7ba470e9875b936cd22157b377129
+ERROR - 2025-11-18 07:04:17 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:04:17 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 07:04:17 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_session97f7ba470e9875b936cd22157b377129
+ERROR - 2025-11-18 07:04:17 --> Login - Session file exists: YES
+ERROR - 2025-11-18 07:04:17 --> Login - Session path writable: YES
+ERROR - 2025-11-18 07:04:17 --> Login - Session files found: 36
+ERROR - 2025-11-18 07:04:17 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 07:04:17 --> Auth check - Token from header: 4b8651a891f697313034...
+ERROR - 2025-11-18 07:04:17 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:04:17 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:04:17 --> Auth check - Session ID from cookie: 97f7ba470e9875b936cd22157b377129
+ERROR - 2025-11-18 07:04:17 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:04:17 --> Auth check - Session initialized, ID: 97f7ba470e9875b936cd22157b377129
+ERROR - 2025-11-18 07:04:17 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:04:17 --> Auth check - Full session data: {"__ci_last_regenerate":1763449451,"admin_token":"4b8651a891f697313034c2b1e6e37134e6fb1f78889ca44294e68176ebd06c29","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:04:17 --> Auth check - Session token: 4b8651a891f697313034...
+ERROR - 2025-11-18 07:04:17 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:04:17 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 07:04:17 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 07:24:12 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:24:12 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 07:24:12 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:24:12 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 07:24:12 --> Auth check - All cookies: []
+ERROR - 2025-11-18 07:24:12 --> Auth check - Session initialized, ID: ad8d196d14c3d55268f423608600f42e
+ERROR - 2025-11-18 07:24:12 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 07:24:12 --> Auth check - Full session data: {"__ci_last_regenerate":1763450652}
+ERROR - 2025-11-18 07:24:12 --> Auth check - Session token: missing
+ERROR - 2025-11-18 07:24:12 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 07:24:12 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:24:16 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:24:16 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:24:16 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:24:16 --> Auth check - Session ID from cookie: ad8d196d14c3d55268f423608600f42e
+ERROR - 2025-11-18 07:24:16 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:24:16 --> Auth check - Session initialized, ID: ad8d196d14c3d55268f423608600f42e
+ERROR - 2025-11-18 07:24:16 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 07:24:16 --> Auth check - Full session data: {"__ci_last_regenerate":1763450652}
+ERROR - 2025-11-18 07:24:16 --> Auth check - Session token: missing
+ERROR - 2025-11-18 07:24:16 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 07:24:16 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:24:23 --> Login - Token stored: cdae1044c510640b01f7...
+ERROR - 2025-11-18 07:24:23 --> Login - Session ID: ad8d196d14c3d55268f423608600f42e
+ERROR - 2025-11-18 07:24:23 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:24:23 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 07:24:23 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_sessionad8d196d14c3d55268f423608600f42e
+ERROR - 2025-11-18 07:24:23 --> Login - Session file exists: YES
+ERROR - 2025-11-18 07:24:23 --> Login - Session path writable: YES
+ERROR - 2025-11-18 07:24:23 --> Login - Session files found: 37
+ERROR - 2025-11-18 07:24:23 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 07:24:23 --> Auth check - Token from header: cdae1044c510640b01f7...
+ERROR - 2025-11-18 07:24:23 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:24:23 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:24:23 --> Auth check - Session ID from cookie: ad8d196d14c3d55268f423608600f42e
+ERROR - 2025-11-18 07:24:23 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:24:23 --> Auth check - Session initialized, ID: ad8d196d14c3d55268f423608600f42e
+ERROR - 2025-11-18 07:24:23 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:24:23 --> Auth check - Full session data: {"__ci_last_regenerate":1763450652,"admin_token":"cdae1044c510640b01f7503cf47f41b935a3fc30a1980acb8d2e9474fea274cd","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:24:23 --> Auth check - Session token: cdae1044c510640b01f7...
+ERROR - 2025-11-18 07:24:23 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:24:23 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 07:24:23 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 07:24:29 --> Auth check - Token from header: cdae1044c510640b01f7...
+ERROR - 2025-11-18 07:24:29 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:24:29 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:24:29 --> Auth check - Session ID from cookie: ad8d196d14c3d55268f423608600f42e
+ERROR - 2025-11-18 07:24:29 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:24:29 --> Auth check - Session initialized, ID: ad8d196d14c3d55268f423608600f42e
+ERROR - 2025-11-18 07:24:29 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:24:29 --> Auth check - Full session data: {"__ci_last_regenerate":1763450652,"admin_token":"cdae1044c510640b01f7503cf47f41b935a3fc30a1980acb8d2e9474fea274cd","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:24:29 --> Auth check - Session token: cdae1044c510640b01f7...
+ERROR - 2025-11-18 07:24:29 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:24:29 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 07:24:29 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 07:32:35 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:32:35 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 07:32:35 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:32:35 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 07:32:35 --> Auth check - All cookies: []
+ERROR - 2025-11-18 07:32:35 --> Auth check - Session initialized, ID: ac364b68db007dd9942b6ee7fc41ba46
+ERROR - 2025-11-18 07:32:35 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 07:32:35 --> Auth check - Full session data: {"__ci_last_regenerate":1763451155}
+ERROR - 2025-11-18 07:32:35 --> Auth check - Session token: missing
+ERROR - 2025-11-18 07:32:35 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 07:32:35 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:32:49 --> Login - Token stored: fa22c64d42e0ccc9c0a0...
+ERROR - 2025-11-18 07:32:49 --> Login - Session ID: ac364b68db007dd9942b6ee7fc41ba46
+ERROR - 2025-11-18 07:32:49 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:32:49 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 07:32:49 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_sessionac364b68db007dd9942b6ee7fc41ba46
+ERROR - 2025-11-18 07:32:49 --> Login - Session file exists: YES
+ERROR - 2025-11-18 07:32:49 --> Login - Session path writable: YES
+ERROR - 2025-11-18 07:32:49 --> Login - Session files found: 38
+ERROR - 2025-11-18 07:32:49 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 07:32:50 --> Auth check - Token from header: fa22c64d42e0ccc9c0a0...
+ERROR - 2025-11-18 07:32:50 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:32:50 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:32:50 --> Auth check - Session ID from cookie: ac364b68db007dd9942b6ee7fc41ba46
+ERROR - 2025-11-18 07:32:50 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:32:50 --> Auth check - Session initialized, ID: ac364b68db007dd9942b6ee7fc41ba46
+ERROR - 2025-11-18 07:32:50 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:32:50 --> Auth check - Full session data: {"__ci_last_regenerate":1763451155,"admin_token":"fa22c64d42e0ccc9c0a05504ab9007316233bafc7c9e1d11cf384c5bc15987af","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:32:50 --> Auth check - Session token: fa22c64d42e0ccc9c0a0...
+ERROR - 2025-11-18 07:32:50 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:32:50 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 07:32:50 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 07:33:25 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:33:25 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:33:25 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:33:25 --> Auth check - Session ID from cookie: fc276238bb0d5af2d037acd21b513501
+ERROR - 2025-11-18 07:33:25 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:33:25 --> Auth check - Session initialized, ID: fc276238bb0d5af2d037acd21b513501
+ERROR - 2025-11-18 07:33:25 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 07:33:25 --> Auth check - Full session data: {"__ci_last_regenerate":1763451181}
+ERROR - 2025-11-18 07:33:25 --> Auth check - Session token: missing
+ERROR - 2025-11-18 07:33:25 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 07:33:25 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:37:10 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:37:10 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 07:37:10 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:37:10 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 07:37:10 --> Auth check - All cookies: []
+ERROR - 2025-11-18 07:37:10 --> Auth check - Session initialized, ID: cff06d2f0cacc0cd90dd3c371f3ec8f2
+ERROR - 2025-11-18 07:37:10 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 07:37:10 --> Auth check - Full session data: {"__ci_last_regenerate":1763451430}
+ERROR - 2025-11-18 07:37:10 --> Auth check - Session token: missing
+ERROR - 2025-11-18 07:37:10 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 07:37:10 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:37:26 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:37:26 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:37:26 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:37:26 --> Auth check - Session ID from cookie: cff06d2f0cacc0cd90dd3c371f3ec8f2
+ERROR - 2025-11-18 07:37:26 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:37:26 --> Auth check - Session initialized, ID: cff06d2f0cacc0cd90dd3c371f3ec8f2
+ERROR - 2025-11-18 07:37:26 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 07:37:26 --> Auth check - Full session data: {"__ci_last_regenerate":1763451430}
+ERROR - 2025-11-18 07:37:26 --> Auth check - Session token: missing
+ERROR - 2025-11-18 07:37:26 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 07:37:26 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:37:37 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:37:37 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:37:37 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:37:37 --> Auth check - Session ID from cookie: cff06d2f0cacc0cd90dd3c371f3ec8f2
+ERROR - 2025-11-18 07:37:37 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:37:37 --> Auth check - Session initialized, ID: cff06d2f0cacc0cd90dd3c371f3ec8f2
+ERROR - 2025-11-18 07:37:37 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 07:37:37 --> Auth check - Full session data: {"__ci_last_regenerate":1763451430}
+ERROR - 2025-11-18 07:37:37 --> Auth check - Session token: missing
+ERROR - 2025-11-18 07:37:37 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 07:37:37 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:37:50 --> Login - Token stored: ee8911b7bbc25d0bedc0...
+ERROR - 2025-11-18 07:37:50 --> Login - Session ID: cff06d2f0cacc0cd90dd3c371f3ec8f2
+ERROR - 2025-11-18 07:37:50 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:37:50 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 07:37:50 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_sessioncff06d2f0cacc0cd90dd3c371f3ec8f2
+ERROR - 2025-11-18 07:37:50 --> Login - Session file exists: YES
+ERROR - 2025-11-18 07:37:50 --> Login - Session path writable: YES
+ERROR - 2025-11-18 07:37:50 --> Login - Session files found: 39
+ERROR - 2025-11-18 07:37:50 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 07:37:50 --> Auth check - Token from header: ee8911b7bbc25d0bedc0...
+ERROR - 2025-11-18 07:37:50 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:37:50 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:37:50 --> Auth check - Session ID from cookie: cff06d2f0cacc0cd90dd3c371f3ec8f2
+ERROR - 2025-11-18 07:37:50 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:37:50 --> Auth check - Session initialized, ID: cff06d2f0cacc0cd90dd3c371f3ec8f2
+ERROR - 2025-11-18 07:37:50 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:37:50 --> Auth check - Full session data: {"__ci_last_regenerate":1763451430,"admin_token":"ee8911b7bbc25d0bedc01be03a5691bb421b1ade0d5cd4262696fbb2e25c8ac6","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:37:50 --> Auth check - Session token: ee8911b7bbc25d0bedc0...
+ERROR - 2025-11-18 07:37:50 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:37:50 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 07:37:50 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 07:44:29 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:44:29 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 07:44:29 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:44:29 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 07:44:29 --> Auth check - All cookies: []
+ERROR - 2025-11-18 07:44:29 --> Auth check - Session initialized, ID: eb49a75d7277b7a6bcd696916b1e8494
+ERROR - 2025-11-18 07:44:29 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 07:44:29 --> Auth check - Full session data: {"__ci_last_regenerate":1763451869}
+ERROR - 2025-11-18 07:44:29 --> Auth check - Session token: missing
+ERROR - 2025-11-18 07:44:29 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 07:44:29 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:44:34 --> Login - Token stored: 4b48a049eeb18cb31aa0...
+ERROR - 2025-11-18 07:44:34 --> Login - Session ID: eb49a75d7277b7a6bcd696916b1e8494
+ERROR - 2025-11-18 07:44:34 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:44:34 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 07:44:34 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_sessioneb49a75d7277b7a6bcd696916b1e8494
+ERROR - 2025-11-18 07:44:34 --> Login - Session file exists: YES
+ERROR - 2025-11-18 07:44:34 --> Login - Session path writable: YES
+ERROR - 2025-11-18 07:44:34 --> Login - Session files found: 40
+ERROR - 2025-11-18 07:44:34 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 07:44:34 --> Auth check - Token from header: 4b48a049eeb18cb31aa0...
+ERROR - 2025-11-18 07:44:34 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:44:34 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:44:34 --> Auth check - Session ID from cookie: eb49a75d7277b7a6bcd696916b1e8494
+ERROR - 2025-11-18 07:44:34 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:44:34 --> Auth check - Session initialized, ID: eb49a75d7277b7a6bcd696916b1e8494
+ERROR - 2025-11-18 07:44:34 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:44:34 --> Auth check - Full session data: {"__ci_last_regenerate":1763451869,"admin_token":"4b48a049eeb18cb31aa03f0fab2b491111b7b922717af3a992507192adc0283c","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:44:34 --> Auth check - Session token: 4b48a049eeb18cb31aa0...
+ERROR - 2025-11-18 07:44:34 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:44:34 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 07:44:34 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 07:44:51 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:44:51 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:44:51 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:44:51 --> Auth check - Session ID from cookie: eb49a75d7277b7a6bcd696916b1e8494
+ERROR - 2025-11-18 07:44:51 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:44:51 --> Auth check - Session initialized, ID: eb49a75d7277b7a6bcd696916b1e8494
+ERROR - 2025-11-18 07:44:51 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:44:51 --> Auth check - Full session data: {"__ci_last_regenerate":1763451869,"admin_token":"4b48a049eeb18cb31aa03f0fab2b491111b7b922717af3a992507192adc0283c","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:44:51 --> Auth check - Session token: 4b48a049eeb18cb31aa0...
+ERROR - 2025-11-18 07:44:51 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:44:51 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:44:57 --> Login - Token stored: bfd9a4d209e93ba2bbd9...
+ERROR - 2025-11-18 07:44:57 --> Login - Session ID: eb49a75d7277b7a6bcd696916b1e8494
+ERROR - 2025-11-18 07:44:57 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:44:57 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 07:44:57 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_sessioneb49a75d7277b7a6bcd696916b1e8494
+ERROR - 2025-11-18 07:44:57 --> Login - Session file exists: YES
+ERROR - 2025-11-18 07:44:57 --> Login - Session path writable: YES
+ERROR - 2025-11-18 07:44:57 --> Login - Session files found: 40
+ERROR - 2025-11-18 07:44:57 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 07:44:57 --> Auth check - Token from header: bfd9a4d209e93ba2bbd9...
+ERROR - 2025-11-18 07:44:57 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:44:57 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:44:57 --> Auth check - Session ID from cookie: eb49a75d7277b7a6bcd696916b1e8494
+ERROR - 2025-11-18 07:44:57 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:44:57 --> Auth check - Session initialized, ID: eb49a75d7277b7a6bcd696916b1e8494
+ERROR - 2025-11-18 07:44:57 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:44:57 --> Auth check - Full session data: {"__ci_last_regenerate":1763451869,"admin_token":"bfd9a4d209e93ba2bbd93031ede112eff4fb74bb8ff85d0fd952f18900cb52f9","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:44:57 --> Auth check - Session token: bfd9a4d209e93ba2bbd9...
+ERROR - 2025-11-18 07:44:57 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:44:57 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 07:44:57 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 07:49:42 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:49:42 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 07:49:42 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:49:42 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 07:49:42 --> Auth check - All cookies: []
+ERROR - 2025-11-18 07:49:42 --> Auth check - Session initialized, ID: 2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:49:42 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 07:49:42 --> Auth check - Full session data: {"__ci_last_regenerate":1763452182}
+ERROR - 2025-11-18 07:49:42 --> Auth check - Session token: missing
+ERROR - 2025-11-18 07:49:42 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 07:49:42 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:49:48 --> Login - Token stored: 15b6a9ea9f04ffbb6e61...
+ERROR - 2025-11-18 07:49:48 --> Login - Session ID: 2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:49:48 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:49:48 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 07:49:48 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_session2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:49:48 --> Login - Session file exists: YES
+ERROR - 2025-11-18 07:49:48 --> Login - Session path writable: YES
+ERROR - 2025-11-18 07:49:48 --> Login - Session files found: 41
+ERROR - 2025-11-18 07:49:48 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 07:49:48 --> Auth check - Token from header: 15b6a9ea9f04ffbb6e61...
+ERROR - 2025-11-18 07:49:48 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:49:48 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:49:48 --> Auth check - Session ID from cookie: 2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:49:48 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:49:48 --> Auth check - Session initialized, ID: 2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:49:48 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:49:48 --> Auth check - Full session data: {"__ci_last_regenerate":1763452182,"admin_token":"15b6a9ea9f04ffbb6e6115a7cda32c604c52a6cd5e940589fadbd1d4d8565f9b","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:49:48 --> Auth check - Session token: 15b6a9ea9f04ffbb6e61...
+ERROR - 2025-11-18 07:49:48 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:49:48 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 07:49:48 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 07:49:51 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:49:51 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:49:51 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:49:51 --> Auth check - Session ID from cookie: 2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:49:51 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:49:51 --> Auth check - Session initialized, ID: 2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:49:51 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:49:51 --> Auth check - Full session data: {"__ci_last_regenerate":1763452182,"admin_token":"15b6a9ea9f04ffbb6e6115a7cda32c604c52a6cd5e940589fadbd1d4d8565f9b","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:49:51 --> Auth check - Session token: 15b6a9ea9f04ffbb6e61...
+ERROR - 2025-11-18 07:49:51 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:49:51 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:50:01 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:50:01 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:50:01 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:50:01 --> Auth check - Session ID from cookie: 2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:50:01 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:50:01 --> Auth check - Session initialized, ID: 2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:50:01 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:50:01 --> Auth check - Full session data: {"__ci_last_regenerate":1763452182,"admin_token":"15b6a9ea9f04ffbb6e6115a7cda32c604c52a6cd5e940589fadbd1d4d8565f9b","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:50:01 --> Auth check - Session token: 15b6a9ea9f04ffbb6e61...
+ERROR - 2025-11-18 07:50:01 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:50:01 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:50:11 --> Login - Token stored: bc85845c6477be790587...
+ERROR - 2025-11-18 07:50:11 --> Login - Session ID: 2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:50:11 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:50:11 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 07:50:11 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_session2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:50:11 --> Login - Session file exists: YES
+ERROR - 2025-11-18 07:50:11 --> Login - Session path writable: YES
+ERROR - 2025-11-18 07:50:11 --> Login - Session files found: 41
+ERROR - 2025-11-18 07:50:11 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 07:50:11 --> Auth check - Token from header: bc85845c6477be790587...
+ERROR - 2025-11-18 07:50:11 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:50:11 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:50:11 --> Auth check - Session ID from cookie: 2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:50:11 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:50:11 --> Auth check - Session initialized, ID: 2d936edb888101e1a20656b64d55590f
+ERROR - 2025-11-18 07:50:11 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:50:11 --> Auth check - Full session data: {"__ci_last_regenerate":1763452182,"admin_token":"bc85845c6477be7905875ea0a144a4024e301d16950384fe5d5f4665d0d12933","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:50:11 --> Auth check - Session token: bc85845c6477be790587...
+ERROR - 2025-11-18 07:50:11 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:50:11 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 07:50:11 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 07:57:38 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:57:38 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language"]
+ERROR - 2025-11-18 07:57:38 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:57:38 --> Auth check - Session ID from cookie: missing
+ERROR - 2025-11-18 07:57:38 --> Auth check - All cookies: []
+ERROR - 2025-11-18 07:57:38 --> Auth check - Session initialized, ID: df3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:57:38 --> Auth check - Session data keys: __ci_last_regenerate
+ERROR - 2025-11-18 07:57:38 --> Auth check - Full session data: {"__ci_last_regenerate":1763452658}
+ERROR - 2025-11-18 07:57:38 --> Auth check - Session token: missing
+ERROR - 2025-11-18 07:57:38 --> Auth check - Session user ID: missing
+ERROR - 2025-11-18 07:57:38 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:57:46 --> Login - Token stored: 91c289c3981372a34051...
+ERROR - 2025-11-18 07:57:46 --> Login - Session ID: df3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:57:46 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:57:46 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 07:57:46 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_sessiondf3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:57:46 --> Login - Session file exists: YES
+ERROR - 2025-11-18 07:57:46 --> Login - Session path writable: YES
+ERROR - 2025-11-18 07:57:46 --> Login - Session files found: 42
+ERROR - 2025-11-18 07:57:46 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 07:57:46 --> Auth check - Token from header: 91c289c3981372a34051...
+ERROR - 2025-11-18 07:57:46 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:57:46 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:57:46 --> Auth check - Session ID from cookie: df3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:57:46 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:57:46 --> Auth check - Session initialized, ID: df3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:57:46 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:57:46 --> Auth check - Full session data: {"__ci_last_regenerate":1763452658,"admin_token":"91c289c3981372a34051c8788cca17c9c4edb36b9931eb7e281e3ef4c3e434ce","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:57:46 --> Auth check - Session token: 91c289c3981372a34051...
+ERROR - 2025-11-18 07:57:46 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:57:46 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 07:57:46 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 07:58:40 --> Error in auth/changePassword: Attempt to read property "ruleSets" on null
+ERROR - 2025-11-18 07:58:50 --> Error in auth/changePassword: Attempt to read property "ruleSets" on null
+ERROR - 2025-11-18 07:58:58 --> Auth check - Token from header: missing
+ERROR - 2025-11-18 07:58:58 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:58:58 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:58:58 --> Auth check - Session ID from cookie: df3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:58:58 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:58:58 --> Auth check - Session initialized, ID: df3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:58:58 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:58:58 --> Auth check - Full session data: {"__ci_last_regenerate":1763452658,"admin_token":"91c289c3981372a34051c8788cca17c9c4edb36b9931eb7e281e3ef4c3e434ce","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:58:58 --> Auth check - Session token: 91c289c3981372a34051...
+ERROR - 2025-11-18 07:58:58 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:58:58 --> Auth check - Header token matches session: NO
+ERROR - 2025-11-18 07:59:06 --> Login - Token stored: 86a7666485cabdabd9d5...
+ERROR - 2025-11-18 07:59:06 --> Login - Session ID: df3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:59:06 --> Login - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:59:06 --> Login - Token verification: MATCH
+ERROR - 2025-11-18 07:59:06 --> Login - Session file path: G:\job-iwt\unnatva.org\writable\session/ci_sessiondf3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:59:06 --> Login - Session file exists: YES
+ERROR - 2025-11-18 07:59:06 --> Login - Session path writable: YES
+ERROR - 2025-11-18 07:59:06 --> Login - Session files found: 42
+ERROR - 2025-11-18 07:59:06 --> Login - Session files: ci_session06dd2d4f279e1cd3d5646be02ac2e911, ci_session0f83d14d97109877991162ba11fe0b6f, ci_session13099b0a7617decfaa966482c8773699, ci_session1e62a61bfd030464d8562b842b23b8b1, ci_session20ff566eee796c6583b596a88a3c3f42
+ERROR - 2025-11-18 07:59:06 --> Auth check - Token from header: 86a7666485cabdabd9d5...
+ERROR - 2025-11-18 07:59:06 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:59:06 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:59:06 --> Auth check - Session ID from cookie: df3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:59:06 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:59:06 --> Auth check - Session initialized, ID: df3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:59:06 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:59:06 --> Auth check - Full session data: {"__ci_last_regenerate":1763452658,"admin_token":"86a7666485cabdabd9d56e8ad5b2d996673baec993ae402d3c20375ef056fb96","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:59:06 --> Auth check - Session token: 86a7666485cabdabd9d5...
+ERROR - 2025-11-18 07:59:06 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:59:06 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 07:59:06 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 07:59:37 --> Auth check - Token from header: 86a7666485cabdabd9d5...
+ERROR - 2025-11-18 07:59:37 --> Auth check - All request headers: ["Content-Type","Host","Connection","User-Agent","Accept","Referer","Accept-Encoding","Accept-Language","Cookie"]
+ERROR - 2025-11-18 07:59:37 --> Auth check - SERVER HTTP_AUTHORIZATION: not set
+ERROR - 2025-11-18 07:59:37 --> Auth check - Session ID from cookie: df3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:59:37 --> Auth check - All cookies: ["ci_session"]
+ERROR - 2025-11-18 07:59:37 --> Auth check - Session initialized, ID: df3b762f04f8124e079b2360746bfaa1
+ERROR - 2025-11-18 07:59:37 --> Auth check - Session data keys: __ci_last_regenerate, admin_token, admin_user_id, admin_user_role
+ERROR - 2025-11-18 07:59:37 --> Auth check - Full session data: {"__ci_last_regenerate":1763452658,"admin_token":"86a7666485cabdabd9d56e8ad5b2d996673baec993ae402d3c20375ef056fb96","admin_user_id":"1","admin_user_role":"admin"}
+ERROR - 2025-11-18 07:59:37 --> Auth check - Session token: 86a7666485cabdabd9d5...
+ERROR - 2025-11-18 07:59:37 --> Auth check - Session user ID: 1
+ERROR - 2025-11-18 07:59:37 --> Auth check - Header token matches session: YES
+ERROR - 2025-11-18 07:59:37 --> Auth check - Token comparison: EQUAL
+ERROR - 2025-11-18 08:00:09 --> Error in auth/changePassword: Attempt to read property "ruleSets" on null

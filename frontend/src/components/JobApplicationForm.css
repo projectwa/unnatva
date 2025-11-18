@@ -1,0 +1,207 @@
+/* Custom styles for the React-Bootstrap Modal to match the original design */
+.custom-modal .modal-dialog {
+  max-width: 900px;
+}
+
+.custom-modal .modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.custom-modal .modal-header {
+  border-bottom: none;
+  padding: 1.5rem;
+}
+
+.custom-modal .modal-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.custom-modal .modal-body {
+  padding: 0;
+}
+
+.custom-modal .form-section {
+  padding: 3rem;
+}
+
+/* Input wrapper - simple div with relative positioning for icon */
+.custom-modal .input-wrapper-custom {
+  position: relative !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+/* Custom form control styling */
+.custom-modal .custom-form-control {
+  border-radius: 8px !important;
+  padding: 0.75rem 1rem !important;
+  padding-right: 2.5rem !important; /* Space for icon inside */
+  border: 1px solid #ced4da !important;
+  color: #333;
+  flex: 1 1 auto;
+  width: 100% !important;
+  min-width: 0;
+  margin: 0 !important;
+  position: relative;
+}
+
+.custom-modal .custom-form-control::placeholder {
+  color: #333333 !important;
+  opacity: 0.5 !important;
+  font-weight: normal;
+}
+
+.custom-modal .custom-form-control:focus {
+  border-color: #00a470;
+  box-shadow: 0 0 0 0.25rem rgba(0, 164, 112, 0.25);
+  color: #333;
+  outline: none;
+}
+
+.custom-modal .custom-form-control:focus::placeholder {
+  opacity: 0.3 !important;
+}
+
+/* Valid state styling */
+.custom-modal .custom-form-control.is-valid {
+  border-color: #28a745;
+  padding-right: 2.5rem;
+}
+
+.custom-modal .custom-form-control.is-valid:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+
+/* Invalid state styling */
+.custom-modal .custom-form-control.is-invalid {
+  border-color: #dc3545;
+  padding-right: 2.5rem;
+}
+
+.custom-modal .custom-form-control.is-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+/* Icons positioned inside the field - simple span with absolute positioning */
+.custom-modal .input-wrapper-custom .field-icon-text {
+  position: absolute !important;
+  right: 0.75rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.custom-modal .input-wrapper-custom .field-icon-text i {
+  font-size: 1.1rem !important;
+  line-height: 1 !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Error message styling - closer to field and in red */
+.custom-modal .field-feedback {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  color: #dc3545;
+  display: block;
+}
+
+/* Upload box styling */
+.custom-modal .upload-box {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.3s;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-modal .upload-box:hover {
+  border-color: #00a470;
+}
+
+.custom-modal .upload-box.upload-success {
+  border-color: #28a745;
+  background-color: rgba(40, 167, 69, 0.05);
+}
+
+.custom-modal .upload-box.upload-error {
+  border-color: #dc3545;
+}
+
+.custom-modal .file-input-hidden {
+  position: fixed !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  width: 0.1px !important;
+  height: 0.1px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  z-index: -1 !important;
+  visibility: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+}
+
+.custom-modal .upload-box .resume-filename {
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.custom-modal .upload-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0.5rem 0;
+}
+
+.custom-modal .rounded-btn {
+  border-radius: 30px;
+  padding: 8px 20px;
+  background-color: #00a470;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  text-decoration: none;
+  gap: 11px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-modal .rounded-btn:hover {
+  background-color: #008a5e;
+  box-shadow: 0 4px 12px rgba(0, 164, 112, 0.4);
+}
+
+.custom-modal .rounded-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.custom-modal .alert {
+  margin-bottom: 1rem;
+}
+

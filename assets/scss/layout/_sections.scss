@@ -1,0 +1,129 @@
+// Section Layout Styles
+.section-title {
+  position: relative;
+  font-size: 36px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  z-index: 10;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 60%;
+    transform: translateY(-50%);
+    width: 270px;
+    height: 53px;
+    background-image: url(../../img/title-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  
+  &.middle::before {
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -70%);
+    width: 270px;
+    height: 53px;
+    background-image: url(../../img/title-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  
+  &.middleTop::before {
+    left: 50%;
+    top: 41%;
+    transform: translate(-50%, -50%);
+    width: 270px;
+    height: 53px;
+    background-image: url(../../img/title-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  
+  &.middleBottomRight::before {
+    left: 60%;
+    top: 72%;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 28px;
+    text-align: center;
+    justify-content: center;
+    
+    &::before,
+    &.middle::before,
+    &.middleTop::before {
+      width: 200px !important;
+      height: 40px;
+    }
+    
+    &.middle::before {
+      left: 50%;
+      transform: translate(-50%, -70%);
+    }
+    
+    &.middleTop::before {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    font-size: 24px;
+    
+    &::before,
+    &.middle::before,
+    &.middleTop::before {
+      width: 150px !important;
+      height: 30px;
+    }
+  }
+}
+
+.section-heading {
+  font-size: 36px;
+  line-height: 150%;
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  
+  span {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 72%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 1.4em;
+      background: url(../../img/title-bg.png) no-repeat center center;
+      background-size: contain;
+      z-index: -1;
+    }
+  }
+}
+
+.page-header {
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+              url(../../img/carousel-1.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #999999;
+}
+

@@ -1,0 +1,86 @@
+/* Footer style overrides to match original design */
+/* These styles override the existing CSS to match the original design exactly */
+
+.container-fluid.footer {
+  background: #8ad5bd !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.container-fluid.footer .footer-title {
+  color: #005a3e !important;
+  font-weight: 700 !important; /* Made thicker to match original */
+  font-size: 36px !important;
+  line-height: 150% !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.container-fluid.footer .footer-title small {
+  color: #0c2b4b !important;
+  display: block !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 150% !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.container-fluid.footer .footer-title small a,
+.container-fluid.footer .footer-title small a.text-dark {
+  color: #0c2b4b !important;
+  text-decoration: underline !important; /* Only Udyogwardhini link should be underlined */
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.container-fluid.footer p {
+  color: #0c2b4b !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 150% !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.container-fluid.footer p a,
+.container-fluid.footer p a.text-dark {
+  color: #0c2b4b !important;
+  text-decoration: none !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.container-fluid.footer .btn.btn-link,
+.container-fluid.footer .btn.btn-link.text-dark {
+  color: #0c2b4b !important;
+  font-weight: 400 !important; /* Changed from normal to 400 for consistency */
+  text-transform: capitalize !important;
+  text-decoration: none !important; /* Remove underlines from links */
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.container-fluid.footer .btn.btn-link:hover {
+  color: #767676 !important;
+}
+
+.container-fluid.footer .social-links a.social-btn {
+  background-color: #005a3e !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.container-fluid.footer .social-links a.social-btn.rounded-btn {
+  background-color: #005a3e !important;
+  width: auto !important;
+  min-width: 120px !important;
+  padding: 8px 20px !important;
+  height: 44px !important;
+}
+
+.container-fluid.footer .social-links a.social-btn.rounded-btn span,
+.container-fluid.footer .social-links a.social-btn.rounded-btn .arrow {
+  color: #fff !important;
+}
+
+.container-fluid.footer .social-links a.social-btn:not(.rounded-btn) {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 31px !important;
+  font-size: 18px !important;
+}
+

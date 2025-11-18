@@ -1,0 +1,24 @@
+.carousel-slide-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.carousel-slide-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--cms-shadow-md);
+}
+
+.carousel-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: var(--cms-gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

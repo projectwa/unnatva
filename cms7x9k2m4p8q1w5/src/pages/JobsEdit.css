@@ -1,0 +1,92 @@
+.jobs-edit {
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.jobs-edit h1 {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.jobs-edit .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.jobs-edit .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.jobs-edit .form-group input[type="text"],
+.jobs-edit .form-group input[type="number"],
+.jobs-edit .form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.jobs-edit .form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.jobs-edit .form-group small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.jobs-edit .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.jobs-edit .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.jobs-edit .checkbox-label input[type="checkbox"] {
+  width: auto;
+  cursor: pointer;
+}
+
+.jobs-edit .form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+/* Button styles removed - using theme.css .btn-cms-primary instead */
+
+.jobs-edit .btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.jobs-edit .btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.jobs-edit .btn-secondary:hover {
+  background: #5a6268;
+}
+
+@media (max-width: 768px) {
+  .jobs-edit .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+

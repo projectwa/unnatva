@@ -1,0 +1,84 @@
+/* Header dropdown style overrides to match original design */
+
+/* Ensure dropdown menu matches original bg-light and m-0 classes */
+.navbar .nav-item.dropdown .dropdown-menu,
+.navbar .dropdown-menu {
+  background-color: #f8f9fa !important; /* bg-light equivalent */
+  margin: 0 !important; /* m-0 equivalent */
+  padding: 0.5rem 0 !important;
+  border: none !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Dropdown items styling */
+.navbar .nav-item.dropdown .dropdown-menu .dropdown-item,
+.navbar .dropdown-menu .dropdown-item {
+  color: #0c2b4b !important; /* var(--dark) */
+  padding: 0.5rem 1.25rem !important;
+  transition: all 0.3s ease !important;
+  font-family: 'Roboto', sans-serif !important;
+  text-decoration: none !important;
+}
+
+.navbar .nav-item.dropdown .dropdown-menu .dropdown-item:hover,
+.navbar .nav-item.dropdown .dropdown-menu .dropdown-item:focus,
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
+  color: #005a3e !important; /* var(--primary) */
+  background-color: rgba(0, 90, 62, 0.1) !important;
+}
+
+/* Dropdown toggle arrow - using Font Awesome */
+.navbar .nav-item.dropdown .dropdown-toggle::after,
+.navbar .nav-link.dropdown-toggle::after {
+  border: none !important;
+  content: "\f107" !important;
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900 !important;
+  vertical-align: middle !important;
+  margin-left: 8px !important;
+}
+
+/* Ensure NavDropdown toggle has correct classes and styling */
+.navbar .nav-item.dropdown .dropdown-toggle,
+.navbar .nav-link.dropdown-toggle {
+  margin-right: 30px !important;
+  padding: 25px 0 !important;
+  color: #0c2b4b !important;
+  outline: none !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.navbar .nav-item.dropdown .dropdown-toggle:hover,
+.navbar .nav-link.dropdown-toggle:hover {
+  color: #005a3e !important; /* var(--primary) */
+}
+
+/* Active state for initiatives */
+.navbar .nav-item.dropdown.act_ourInitiatives .dropdown-toggle,
+.navbar .nav-item.dropdown.act_ourInitiatives .nav-link {
+  color: #005a3e !important; /* var(--primary) */
+}
+
+/* Desktop hover behavior (min-width: 992px) */
+@media (min-width: 992px) {
+  .navbar .nav-item.dropdown .dropdown-menu,
+  .navbar .dropdown-menu {
+    display: block !important;
+    border: none !important;
+    margin-top: 0 !important;
+    top: 150% !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: 0.5s !important;
+  }
+  
+  .navbar .nav-item.dropdown:hover .dropdown-menu,
+  .navbar .dropdown:hover .dropdown-menu {
+    top: 100% !important;
+    visibility: visible !important;
+    transition: 0.5s !important;
+    opacity: 1 !important;
+  }
+}
+

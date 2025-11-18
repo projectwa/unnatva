@@ -1,0 +1,17 @@
+.dashboard-header {
+  margin-bottom: var(--cms-spacing-lg);
+}
+
+.dashboard-header h1 {
+  color: var(--cms-gray-800);
+  font-weight: var(--cms-font-weight-semibold);
+  font-size: 1.5rem;
+}
+
+.cms-icon-primary-light {
+  color: var(--cms-primary-light);
+}
+
+.cms-icon-primary-lighter {
+  color: var(--cms-primary-lighter);
+}

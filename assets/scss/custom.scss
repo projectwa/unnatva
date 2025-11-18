@@ -1,0 +1,73 @@
+// ============================================
+// Unnatva Foundation - Custom Styles
+// ============================================
+// This file compiles Bootstrap + Custom styles into a single CSS file
+
+// 1. Import Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+// 2. Bootstrap Variable Overrides (must come before Bootstrap import)
+$primary: #005a3e;
+$secondary: #00a470;
+$light: #f3f6f8;
+$dark: #0c2b4b;
+
+$font-family-base: 'Roboto', sans-serif;
+$body-color: $secondary;
+$headings-color: $dark;
+$headings-font-weight: 600;
+$display-font-weight: 700;
+
+$enable-responsive-font-sizes: true;
+$border-radius: 0px;
+$border-radius-sm: $border-radius;
+$border-radius-lg: $border-radius;
+$link-decoration: none;
+$enable-negative-margins: true;
+
+// 3. Import Bootstrap from node_modules
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// 4. CSS Custom Properties (for JavaScript access)
+:root {
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --light-gray: #a1a1a1;
+  --dark-gray: #ebebeb;
+  --light: #{$light};
+  --dark: #{$dark};
+}
+
+// 5. Base Styles
+@import "base/body";
+@import "base/typography";
+@import "base/links";
+@import "base/utilities";
+
+// 6. Components
+@import "components/buttons";
+@import "components/navbar";
+@import "components/carousel";
+@import "components/cards";
+@import "components/forms";
+@import "components/modals";
+@import "components/spinner";
+@import "components/video";
+
+// 7. Layout
+@import "layout/sections";
+@import "layout/footer";
+
+// 8. Page-specific Styles
+@import "pages/home";
+@import "pages/about";
+@import "pages/impact";
+@import "pages/success-stories";
+@import "pages/careers";
+@import "pages/contact";
+@import "pages/initiatives";
+
+// 9. Third-party Overrides
+@import "overrides/owl-carousel";
+@import "overrides/pagination";
+

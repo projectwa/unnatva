@@ -1,0 +1,50 @@
+# CodeIgniter 4 - Root .htaccess
+# Routes all requests to public/index.php except for asset directories and public/ folder
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # CRITICAL: Allow direct access to files in public/ directory FIRST
+    # This must come before other rules
+    RewriteCond %{REQUEST_URI} ^/public/ [NC]
+    RewriteRule ^ - [L]
+    
+    # Allow direct access to asset directories (img, assets, js, lib, css, icon)
+    RewriteCond %{REQUEST_URI} ^/(img|assets|js|lib|css|icon)/ [NC]
+    RewriteRule ^ - [L]
+    
+    # Allow direct access to CMS built files
+    RewriteCond %{REQUEST_URI} ^/cms7x9k2m4p8q1w5/ [NC]
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+    
+    # Allow direct access to existing files in root
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+    
+    # Allow direct access to existing directories in root (except CMS directory)
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_URI} !^/cms7x9k2m4p8q1w5/ [NC]
+    RewriteRule ^ - [L]
+    
+    # Route everything else to public/index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ public/index.php/$1 [L]
+</IfModule>
+
+# If mod_rewrite is not available, fall back to ErrorDocument
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 /public/index.php
+</IfModule>
+
+# Security: Deny access to sensitive files (but allow .htaccess itself)
+<FilesMatch "^(\.env|\.git|composer\.(json|lock)|package(-lock)?\.json)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>

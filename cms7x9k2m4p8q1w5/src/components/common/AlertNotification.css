@@ -1,0 +1,26 @@
+.cms-alert-notification {
+  background-color: var(--cms-alert-bg) !important;
+  border-color: var(--cms-alert-border) !important;
+  color: var(--cms-alert-text) !important;
+  border-radius: var(--cms-radius-md);
+  padding: var(--cms-spacing-md);
+  margin-bottom: var(--cms-spacing-md);
+  font-size: var(--cms-font-size-base);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cms-alert-notification .btn-close {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(1234%) hue-rotate(1deg) brightness(95%) contrast(87%);
+}
+

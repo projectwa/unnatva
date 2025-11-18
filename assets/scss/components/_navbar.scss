@@ -1,0 +1,107 @@
+// Navbar Styles
+.navbar {
+  z-index: 1000;
+  
+  &.sticky-top {
+    top: -100px;
+    transition: 0.5s;
+  }
+  
+  .navbar-brand,
+  a.btn {
+    height: 80px;
+  }
+  
+  .navbar-brand .logo {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  @media (max-width: 480px) {
+    .navbar-brand .logo {
+      max-width: 170px;
+    }
+  }
+  
+  .navbar-nav {
+    .nav-link {
+      margin-right: 30px;
+      padding: 25px 0;
+      color: var(--dark);
+      outline: none;
+      
+      &:hover,
+      &.active {
+        color: var(--primary);
+      }
+    }
+    
+    @media (max-width: 991.98px) {
+      .nav-link {
+        margin-right: 0;
+        padding: 10px 0;
+      }
+      
+      border-top: 1px solid #eeeeee;
+    }
+  }
+  
+  .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+  
+  .dropdown-menu {
+    padding: 0.5rem 0;
+    
+    .dropdown-item {
+      color: var(--dark) !important;
+      padding: 0.5rem 1.25rem;
+      transition: all 0.3s ease;
+      
+      &:hover,
+      &:focus {
+        color: var(--primary) !important;
+        background-color: rgba(0, 90, 62, 0.1);
+      }
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .nav-item {
+      .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.5s;
+      }
+      
+      &:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        transition: 0.5s;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Active page highlighting
+body.act_home a.act_home,
+body.act_about a.act_about,
+body.act_impact a.act_impact,
+body.act_ourInitiatives a.act_ourInitiatives,
+body.act_successStory a.act_successStory,
+body.act_career a.act_career,
+body.act_certifications a.act_certifications,
+body.act_contact a.act_contact {
+  color: var(--bs-primary) !important;
+}
+

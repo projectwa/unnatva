@@ -1,0 +1,89 @@
+# Disable directory browsing
+Options -Indexes
+
+# ----------------------------------------------------------------------
+# Rewrite engine
+# ----------------------------------------------------------------------
+
+# Turning on the rewrite engine is necessary for the following rules and features.
+# FollowSymLinks must be enabled for this to work.
+<IfModule mod_rewrite.c>
+	Options +FollowSymlinks
+	RewriteEngine On
+
+	# Route CMS requests to CI4 FIRST (before any other rules)
+	# This ensures directory requests go through CI4 routing
+	# Use internal rewrite - rewrite to index.php with the path
+	# CI4 will automatically strip index.php from the URI
+	RewriteCond %{REQUEST_URI} ^/cms7x9k2m4p8q1w5/? [NC]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^cms7x9k2m4p8q1w5/?(.*)$ index.php/cms7x9k2m4p8q1w5/$1 [L,QSA]
+	
+	# Allow direct access to cms7x9k2m4p8q1w5 static files (JS, CSS, etc.) ONLY
+	# This must come after CMS routing to allow static assets
+	RewriteCond %{REQUEST_URI} ^/cms7x9k2m4p8q1w5/ [NC]
+	RewriteCond %{REQUEST_FILENAME} -f
+	RewriteCond %{REQUEST_URI} \.(js|css|map|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot)$ [NC]
+	RewriteRule ^ - [L]
+	
+	# Serve static files directly without processing (must come first)
+	RewriteCond %{REQUEST_FILENAME} -f
+	RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|webp|ico|svg|css|js|woff|woff2|ttf|eot|map)$ [NC]
+	RewriteRule ^ - [L]
+
+	# If you installed CodeIgniter in a subfolder, you will need to
+	# change the following line to match the subfolder you need.
+	# http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
+	# RewriteBase /
+
+	# Redirect Trailing Slashes... (except CMS directory)
+	RewriteCond %{REQUEST_URI} !^/cms7x9k2m4p8q1w5/? [NC]
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_URI} (.+)/$
+	RewriteRule ^ %1 [L,R=301]
+
+	# Rewrite "www.example.com -> example.com"
+	RewriteCond %{HTTPS} !=on
+	RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+	RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
+
+	# Block direct access to index.php (should go through routes)
+	# But allow internal rewrites (don't block if it's an internal rewrite)
+	RewriteCond %{THE_REQUEST} \s/index\.php[\s?] [NC]
+	RewriteCond %{REQUEST_URI} !^/cms7x9k2m4p8q1w5 [NC]
+	RewriteRule ^ - [R=404,L]
+	
+	# Allow direct access to existing files (except index.php)
+	RewriteCond %{REQUEST_FILENAME} -f
+	RewriteCond %{REQUEST_URI} !^/index\.php$ [NC]
+	RewriteRule ^ - [L]
+	
+	# Checks to see if the user is attempting to access a valid file,
+	# such as an image or css document, if this isn't true it sends the
+	# request to the front controller, index.php
+	# This must come before directory access to catch CMS routes
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([\s\S]*)$ index.php/$1 [L,NC,QSA]
+	
+	# Allow direct access to existing directories (except CMS directory)
+	# CMS directory requests should go through CI4 routing (handled above)
+	RewriteCond %{REQUEST_FILENAME} -d
+	RewriteCond %{REQUEST_URI} !^/cms7x9k2m4p8q1w5/? [NC]
+	RewriteRule ^ - [L]
+
+	# Ensure Authorization header is passed along
+	RewriteCond %{HTTP:Authorization} .
+	RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+	# If we don't have mod_rewrite installed, all 404's
+	# can be sent to index.php, and everything works as normal.
+	ErrorDocument 404 index.php
+</IfModule>
+
+# Disable server signature start
+ServerSignature Off
+# Disable server signature end
+

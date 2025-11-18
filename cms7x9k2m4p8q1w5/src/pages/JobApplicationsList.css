@@ -1,0 +1,124 @@
+.job-applications-list {
+  padding: 2rem;
+}
+
+.job-applications-list .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.job-applications-list .page-header h1 {
+  margin: 0;
+  color: #333;
+}
+
+.job-applications-list .empty-state {
+  text-align: center;
+  padding: 3rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.job-applications-list .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.job-applications-list .data-table thead {
+  background: #f5f5f5;
+}
+
+.job-applications-list .data-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+}
+
+.job-applications-list .data-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.job-applications-list .data-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.job-applications-list .name-cell {
+  font-weight: 500;
+  color: #0066cc;
+}
+
+.job-applications-list .status-select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.job-applications-list .status-select.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.job-applications-list .status-select.status-reviewed {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.job-applications-list .status-select.status-shortlisted {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.job-applications-list .status-select.status-rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.job-applications-list .btn-download {
+  padding: 0.5rem 1rem;
+  background: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.job-applications-list .btn-download:hover {
+  background: #0052a3;
+}
+
+.job-applications-list .actions-cell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.job-applications-list .btn-delete {
+  padding: 0.5rem 1rem;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.job-applications-list .btn-delete:hover {
+  background: #c82333;
+}
+
+.job-applications-list .text-muted {
+  color: #6c757d;
+  font-style: italic;
+}
+

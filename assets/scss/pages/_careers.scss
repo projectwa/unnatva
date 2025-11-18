@@ -1,0 +1,104 @@
+// Careers Page Styles
+.careers-listings {
+  p {
+    font-size: 21px;
+    font-weight: normal;
+    line-height: 150%;
+    
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+  
+  h3 {
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 150%;
+    
+    @media (max-width: 768px) {
+      font-size: 20px !important;
+    }
+  }
+  
+  // Prevent layout shift when button is hovered
+  .d-flex {
+    align-items: center;
+    
+    // First row: Location, Experience, Category badges
+    &:first-of-type {
+      margin-bottom: 12px;
+    }
+    
+    // Second row: Last Date and Apply Now button
+    &:last-of-type {
+      // Prevent flex items from shifting - use fixed height
+      min-height: 44px;
+      // Prevent reflow
+      contain: layout style;
+      
+      > div:last-child {
+        // Container for Apply Now button - maintain FIXED dimensions
+        height: 44px;
+        min-height: 44px;
+        max-height: 44px;
+        width: 140px;
+        min-width: 140px;
+        max-width: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        // Prevent any layout shifts - critical
+        flex-shrink: 0;
+        flex-grow: 0;
+        position: relative;
+        // Isolate from layout
+        contain: layout style paint;
+      }
+    }
+  }
+  
+  // Ensure job listing containers don't shift
+  .col-12 {
+    // Add padding to prevent content from shifting
+    padding-bottom: 10px;
+    // Prevent reflow
+    contain: layout;
+    
+    // Ensure divider doesn't cause shifts
+    .divider {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      height: 1px;
+      // Prevent divider from expanding
+      flex-shrink: 0;
+    }
+  }
+}
+
+.job-badge {
+  display: inline-block;
+  border: 1px solid #005A3E;
+  color: #333;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 30px;
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 25px;
+    
+    img {
+      width: 16px;
+    }
+  }
+}
+
+.divider {
+  height: 1px;
+  background-color: #000;
+  margin: 20px 0;
+}
+

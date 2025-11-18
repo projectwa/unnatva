@@ -1,0 +1,15 @@
+Generated Admin Folder Name: cms7x9k2m4p8q1w5
+Generated on: 2025-11-11
+
+This folder name should be used for:
+- Admin React SPA folder: admin/cms7x9k2m4p8q1w5/
+- Public admin entry point: public/cms7x9k2m4p8q1w5/
+- Admin routes: /cms7x9k2m4p8q1w5/
+- Admin API routes: /cms7x9k2m4p8q1w5/api/
+
+IMPORTANT: Keep this file secure and do not commit it to public repositories.
+Consider adding this file to .gitignore if it contains sensitive information.
+
+
+
+
