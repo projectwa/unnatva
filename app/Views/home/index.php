@@ -12,6 +12,7 @@
 </head>
 
 <body class="<?= esc($bodyClass ?? 'act_home') ?>">
+    <!-- TEST CHANGE -->
     <?= view('layouts/header') ?>
 
     <!-- Carousel Start - React Component -->
@@ -414,18 +415,38 @@
 
     <?= view('layouts/footer') ?>
 
-    <!-- Load React and ReactDOM from CDN -->
+    <!-- Load React and ReactDOM (required for standalone components) -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     
     <!-- Load our React components (React Bootstrap is bundled in) -->
-    <?php if (function_exists('js_path')): ?>
-        <script src="<?= js_path('react/components/carousel.js') ?>"></script>
-        <script src="<?= js_path('react/components/counters.js') ?>"></script>
-    <?php else: ?>
-        <script src="<?= base_url('js/react/components/carousel.js') ?>"></script>
-        <script src="<?= base_url('js/react/components/counters.js') ?>"></script>
-    <?php endif; ?>
+    <!-- Debug: Log the URLs being used -->
+    <script>
+        var carouselUrl = '<?= base_url('js/react/components/carousel.js') ?>';
+        var countersUrl = '<?= base_url('js/react/components/counters.js') ?>';
+        console.log('Carousel script URL:', carouselUrl);
+        console.log('Counters script URL:', countersUrl);
+        console.log('React available:', typeof React !== 'undefined');
+        console.log('ReactDOM available:', typeof ReactDOM !== 'undefined');
+        
+        // Test if the file exists by trying to fetch it
+        fetch(carouselUrl)
+            .then(response => {
+                console.log('Carousel.js fetch response:', response.status, response.statusText);
+                if (response.ok) {
+                    console.log('Carousel.js file exists and is accessible');
+                } else {
+                    console.error('Carousel.js file not found or not accessible:', response.status);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching carousel.js:', error);
+            });
+    </script>
+    
+    <!-- Load carousel component - using regular script tags -->
+    <script src="<?= base_url('js/react/components/carousel.js') ?>" defer></script>
+    <script src="<?= base_url('js/react/components/counters.js') ?>" defer></script>
 
     <!-- whats-happening Modal Script -->
     <script>

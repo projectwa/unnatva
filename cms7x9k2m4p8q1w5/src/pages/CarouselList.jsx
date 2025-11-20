@@ -20,13 +20,25 @@ function CarouselList() {
   const loadSlides = async () => {
     try {
       setLoading(true);
+      setNotification(null);
       const result = await carouselAPI.list();
-      setSlides(result.data || []);
+      console.log('Carousel API Result:', result);
+      
+      // Handle different response structures
+      if (result && result.data) {
+        setSlides(Array.isArray(result.data) ? result.data : []);
+      } else if (Array.isArray(result)) {
+        setSlides(result);
+      } else {
+        setSlides([]);
+      }
     } catch (err) {
+      console.error('Error loading carousel slides:', err);
       setNotification({
         message: err.message || 'Failed to load carousel slides',
         variant: 'danger'
       });
+      setSlides([]);
     } finally {
       setLoading(false);
     }
@@ -60,7 +72,21 @@ function CarouselList() {
       return imageFilename;
     }
     // Otherwise, construct path to img folder
-    const basePath = window.location.pathname.split('/cms7x9k2m4p8q1w5')[0];
+    // Get the base path by removing the CMS path segment
+    let pathname = window.location.pathname;
+    
+    // Handle /index.php/cms7x9k2m4p8q1w5/... pattern
+    if (pathname.includes('/index.php/cms7x9k2m4p8q1w5')) {
+      pathname = pathname.split('/index.php/cms7x9k2m4p8q1w5')[0];
+    }
+    // Handle /cms7x9k2m4p8q1w5/... pattern
+    else if (pathname.includes('/cms7x9k2m4p8q1w5')) {
+      pathname = pathname.split('/cms7x9k2m4p8q1w5')[0];
+    }
+    
+    // If pathname is empty or just '/', use root
+    const basePath = pathname || '';
+    
     return `${basePath}/img/${imageFilename}`;
   };
 
@@ -104,6 +130,11 @@ function CarouselList() {
       ) : (
         <Row className="g-3">
           {slides.map((slide) => {
+            if (!slide || !slide.id) {
+              console.warn('Invalid slide data:', slide);
+              return null;
+            }
+            
             const imageUrl = getImageUrl(slide.image);
             return (
               <Col key={slide.id} xs={12} sm={6} md={4} lg={3}>
@@ -115,6 +146,10 @@ function CarouselList() {
                         src={imageUrl}
                         alt={slide.heading || 'Carousel slide'}
                         className="carousel-image"
+                        onError={(e) => {
+                          console.error('Image load error:', imageUrl);
+                          e.target.style.display = 'none';
+                        }}
                       />
                     </div>
                   )}

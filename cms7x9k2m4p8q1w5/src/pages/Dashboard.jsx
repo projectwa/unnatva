@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { 
   FileText, Images, BarChart, JournalText, 
-  Folder, PersonCheck
+  Folder, PersonCheck, Envelope
 } from 'react-bootstrap-icons';
 import { dashboardAPI } from '../services/api';
 import AlertNotification from '../components/common/AlertNotification';
@@ -99,6 +99,13 @@ function Dashboard() {
       label: 'Received in last 7 days',
       icon: PersonCheck,
       color: 'primary'
+    },
+    {
+      title: 'New Enquiries',
+      value: stats?.enquiries?.new_last_7_days || 0,
+      label: 'Received in last 7 days',
+      icon: Envelope,
+      color: 'primary-light'
     }
   ];
 

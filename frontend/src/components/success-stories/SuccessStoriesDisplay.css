@@ -1,0 +1,159 @@
+/* Success Stories Display Styles */
+
+/* Banner Styles */
+.banner-success-stories {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.banner-caption {
+  position: absolute;
+  bottom: 140px; /* Position above the tabs */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  width: 100%;
+  pointer-events: none;
+}
+
+.banner-caption h2 {
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-caption h5 {
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1200px) {
+  .banner-caption {
+    bottom: 0px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-caption {
+    bottom: -40px !important;
+  }
+}
+
+@media (max-width: 568px) {
+  .banner-caption {
+    bottom: -60px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-caption {
+    bottom: -80px !important;
+  }
+}
+
+/* Tabs overlay container - overlapping banner */
+.tabs-overlay-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: transparent;
+}
+
+/* Ensure tabs are visible on banner - positioned in white space */
+.tabs-overlay-container .nav-pills {
+  background: transparent;
+  padding: 1rem 0 0.5rem 0;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* Story content section - below banner */
+#success-stories-content {
+  background: #fff;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  min-height: 400px;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-box {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.quote-box .row {
+  margin: 0;
+}
+
+.story-image {
+  background-color: #f8f9fa;
+}
+
+.photo-content img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+.photo-content p {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.nav-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.nav-pills .nav-link {
+  color: #333;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1.5rem;
+  white-space: nowrap;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: #f8f9fa;
+  border-color: #00a470;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #00a470;
+  border-color: #00a470;
+  color: #fff;
+}
+
+.nav-pills .nav-link .badge {
+  font-size: 0.7rem;
+  vertical-align: middle;
+}
+
+.stories-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  .quote-box .row {
+    flex-direction: column;
+  }
+  
+  .quote-box .col-lg-6 {
+    order: initial !important;
+  }
+}
+

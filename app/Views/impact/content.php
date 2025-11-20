@@ -353,54 +353,11 @@
                     <p class="mb-0 lh-lg">Let's build a brighter, more inclusive future together.</p>
                 </div>
                 <div class="col-lg-10 mt-5 text-center mx-auto">
-                    <a href="#" class="rounded-btn" data-bs-toggle="modal" data-bs-target="#popupModal">Partner with us <span class="arrow"><i class="bi bi-arrow-right"></i></span></a>
+                    <a href="#" class="rounded-btn" data-bs-toggle="modal" data-bs-target="#popupModal" data-source-page="impact">Partner with us <span class="arrow"><i class="bi bi-arrow-right"></i></span></a>
                 </div>
 
-                <!-- Modal -->
-                <div class="modal fade custom-modal" id="popupModal" tabindex="-1" aria-hidden="true">
-                  <div class="modal-dialog modal-xl modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="row g-0">
-                        <!-- Form Section -->
-                        <div class="col-lg-12 form-section">
-                          <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
-                          <h3>Help us know you better</h3>
-                          <p class="fw-semibold">How do you want to contribute?</p>
-                          <form>
-                            <input type="text" class="form-control" placeholder="Name">
-                            <input type="text" class="form-control" placeholder="Company Name">
-                            <input type="text" class="form-control" placeholder="Contact Number">
-                            <input type="email" class="form-control" placeholder="Business Email">
-                
-                            <p class="fw-semibold mt-3">In which area do you want to create impact?</p>
-                            <div class="impact-options">
-                              <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="entrepreneurship">
-                                <label class="form-check-label small" for="entrepreneurship">Entrepreneurship</label>
-                              </div>
-                              <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="skillDev">
-                                <label class="form-check-label small" for="skillDev">Skill Development</label>
-                              </div>
-                              <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="womenEmp">
-                                <label class="form-check-label small" for="womenEmp">Women Empowerment</label>
-                              </div>
-                              <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="education">
-                                <label class="form-check-label small" for="education">Education</label>
-                              </div>
-                            </div>
-                
-                            <a href="#" class="rounded-btn">Submit <span class="arrow"><i class="bi bi-arrow-right"></i></span></a>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Modal End-->    
+                <!-- Modal - REMOVED: Replaced by React-Bootstrap EnquiryForm -->
+                <!-- Old Bootstrap modal HTML commented out -->    
                
             </div>
         </div>

@@ -9,6 +9,7 @@ use App\Models\ImpactStatModel;
 use App\Models\SuccessStoryModel;
 use App\Models\MediaItemModel;
 use App\Models\JobApplicationModel;
+use App\Models\EnquiryModel;
 
 class Dashboard extends BaseController
 {
@@ -23,10 +24,16 @@ class Dashboard extends BaseController
         $storiesModel = new SuccessStoryModel();
         $mediaModel = new MediaItemModel();
         $jobApplicationModel = new JobApplicationModel();
+        $enquiryModel = new EnquiryModel();
 
         // Get new applicants in last 7 days
         $sevenDaysAgo = date('Y-m-d H:i:s', strtotime('-7 days'));
         $newApplicantsCount = $jobApplicationModel
+            ->where('created_at >=', $sevenDaysAgo)
+            ->countAllResults();
+
+        // Get new enquiries in last 7 days
+        $newEnquiriesCount = $enquiryModel
             ->where('created_at >=', $sevenDaysAgo)
             ->countAllResults();
 
@@ -53,6 +60,10 @@ class Dashboard extends BaseController
             'job_applications' => [
                 'total' => $jobApplicationModel->countAllResults(),
                 'new_last_7_days' => $newApplicantsCount,
+            ],
+            'enquiries' => [
+                'total' => $enquiryModel->countAllResults(),
+                'new_last_7_days' => $newEnquiriesCount,
             ],
         ];
 

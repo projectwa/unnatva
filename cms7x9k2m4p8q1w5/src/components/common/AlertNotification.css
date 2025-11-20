@@ -1,18 +1,36 @@
 .cms-alert-notification {
+  position: fixed;
+  top: 56px; /* Below TopBar (Bootstrap Navbar default height + padding) */
+  left: 250px; /* Account for sidebar width */
+  right: 0;
+  z-index: 1050; /* Above most content, below modals (Bootstrap modals use 1055) */
   background-color: var(--cms-alert-bg) !important;
   border-color: var(--cms-alert-border) !important;
   color: var(--cms-alert-text) !important;
-  border-radius: var(--cms-radius-md);
-  padding: var(--cms-spacing-md);
-  margin-bottom: var(--cms-spacing-md);
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding: var(--cms-spacing-md) var(--cms-spacing-lg);
+  margin: 0;
   font-size: var(--cms-font-size-base);
-  animation: slideIn 0.3s ease-out;
+  animation: slideDown 0.3s ease-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
 }
 
-@keyframes slideIn {
+/* When sidebar is collapsed or on mobile, adjust left position */
+@media (max-width: 768px) {
+  .cms-alert-notification {
+    left: 0;
+    top: 56px; /* Keep same top position on mobile */
+  }
+}
+
+@keyframes slideDown {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-100%);
   }
   to {
     opacity: 1;

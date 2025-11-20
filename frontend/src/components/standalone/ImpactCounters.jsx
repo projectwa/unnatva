@@ -24,6 +24,49 @@ function ImpactCounters({ stats = [] }) {
     }
   }, []);
 
+    // Handle "Create Change" button click
+    const handleCreateChangeClick = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation(); // Prevent other handlers from running
+      
+      console.log('ImpactCounters: Create Change button clicked');
+      
+      // Aggressively prevent Bootstrap modal from showing
+      const modal = document.getElementById('popupModal');
+      if (modal) {
+        // Hide Bootstrap modal if it's visible
+        if (window.bootstrap && window.bootstrap.Modal) {
+          const bsModal = window.bootstrap.Modal.getInstance(modal);
+          if (bsModal) {
+            bsModal.hide();
+          }
+          // Prevent new modal instances
+          modal.removeAttribute('data-bs-toggle');
+          modal.removeAttribute('data-bs-target');
+        }
+        // Also hide it directly
+        modal.style.display = 'none';
+        modal.classList.remove('show');
+        document.body.classList.remove('modal-open');
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+          backdrop.remove();
+        }
+      }
+      
+      // Dispatch custom event to open React enquiry form
+      console.log('ImpactCounters: Dispatching openEnquiryForm event');
+      const event = new CustomEvent('openEnquiryForm', { 
+        detail: { sourcePage: 'home' },
+        bubbles: true,
+        cancelable: true
+      });
+      window.dispatchEvent(event);
+      
+      return false; // Additional prevention
+    };
+
   if (!stats || stats.length === 0) {
     return null;
   }
@@ -54,7 +97,14 @@ function ImpactCounters({ stats = [] }) {
                 </div>
               ))}
             </div>
-            <a href="#" className="rounded-btn" data-bs-toggle="modal" data-bs-target="#popupModal">
+            <a 
+              href="#" 
+              className="rounded-btn" 
+              onClick={handleCreateChangeClick}
+              data-bs-toggle="modal" 
+              data-bs-target="#popupModal"
+              data-source-page="home"
+            >
               Create Change <span className="arrow"><i className="bi bi-arrow-right"></i></span>
             </a>
           </Col>

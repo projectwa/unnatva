@@ -51,24 +51,62 @@ class Carousel extends BaseController
      */
     public function create()
     {
-        $data = $this->request->getJSON(true);
+        try {
+            $data = $this->request->getJSON(true);
+            
+            // Log received data for debugging
+            log_message('error', 'Carousel::create - Received data: ' . json_encode($data));
+            
+            // Handle highlighted_words - ensure it's properly formatted
+            if (isset($data['highlighted_words'])) {
+                if (is_array($data['highlighted_words'])) {
+                    // If it's already an array, keep it as is
+                    // The model should handle JSON encoding if needed
+                } elseif (is_string($data['highlighted_words'])) {
+                    // If it's a string, try to decode it or convert to array
+                    $decoded = json_decode($data['highlighted_words'], true);
+                    if (json_last_error() === JSON_ERROR_NONE) {
+                        $data['highlighted_words'] = $decoded;
+                    } else {
+                        // If not JSON, treat as comma-separated string
+                        $data['highlighted_words'] = array_filter(array_map('trim', explode(',', $data['highlighted_words'])));
+                    }
+                }
+            }
 
-        if (!$this->carouselModel->insert($data)) {
+            if (!$this->carouselModel->insert($data)) {
+                $errors = $this->carouselModel->errors();
+                log_message('error', 'Carousel::create - Validation failed: ' . json_encode($errors));
+                return $this->response
+                    ->setStatusCode(400)
+                    ->setJSON([
+                        'error' => 'Validation failed',
+                        'errors' => $errors
+                    ]);
+            }
+
+            $insertId = $this->carouselModel->getInsertID();
+            log_message('error', 'Carousel::create - Slide created with ID: ' . $insertId);
+
             return $this->response
-                ->setStatusCode(400)
+                ->setStatusCode(201)
                 ->setJSON([
-                    'error' => 'Validation failed',
-                    'errors' => $this->carouselModel->errors()
+                    'success' => true,
+                    'message' => 'Slide created successfully',
+                    'data' => $this->carouselModel->find($insertId)
+                ]);
+        } catch (\Throwable $e) {
+            log_message('error', 'Carousel::create - Exception: ' . $e->getMessage());
+            log_message('error', 'Carousel::create - Stack trace: ' . $e->getTraceAsString());
+            return $this->response
+                ->setStatusCode(500)
+                ->setJSON([
+                    'error' => 'Internal server error',
+                    'message' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine()
                 ]);
         }
-
-        return $this->response
-            ->setStatusCode(201)
-            ->setJSON([
-                'success' => true,
-                'message' => 'Slide created successfully',
-                'data' => $this->carouselModel->find($this->carouselModel->getInsertID())
-            ]);
     }
 
     /**
@@ -76,30 +114,67 @@ class Carousel extends BaseController
      */
     public function update($id)
     {
-        $slide = $this->carouselModel->find($id);
-        
-        if (!$slide) {
-            return $this->response
-                ->setStatusCode(404)
-                ->setJSON(['error' => 'Slide not found']);
-        }
+        try {
+            $slide = $this->carouselModel->find($id);
+            
+            if (!$slide) {
+                return $this->response
+                    ->setStatusCode(404)
+                    ->setJSON(['error' => 'Slide not found']);
+            }
 
-        $data = $this->request->getJSON(true);
+            $data = $this->request->getJSON(true);
+            
+            // Log received data for debugging
+            log_message('error', 'Carousel::update - Received data: ' . json_encode($data));
+            
+            // Handle highlighted_words - ensure it's properly formatted
+            if (isset($data['highlighted_words'])) {
+                if (is_array($data['highlighted_words'])) {
+                    // If it's already an array, keep it as is
+                    // The model should handle JSON encoding if needed
+                } elseif (is_string($data['highlighted_words'])) {
+                    // If it's a string, try to decode it or convert to array
+                    $decoded = json_decode($data['highlighted_words'], true);
+                    if (json_last_error() === JSON_ERROR_NONE) {
+                        $data['highlighted_words'] = $decoded;
+                    } else {
+                        // If not JSON, treat as comma-separated string
+                        $data['highlighted_words'] = array_filter(array_map('trim', explode(',', $data['highlighted_words'])));
+                    }
+                }
+            }
 
-        if (!$this->carouselModel->update($id, $data)) {
+            if (!$this->carouselModel->update($id, $data)) {
+                $errors = $this->carouselModel->errors();
+                log_message('error', 'Carousel::update - Validation failed: ' . json_encode($errors));
+                return $this->response
+                    ->setStatusCode(400)
+                    ->setJSON([
+                        'error' => 'Validation failed',
+                        'errors' => $errors
+                    ]);
+            }
+
+            log_message('error', 'Carousel::update - Slide updated with ID: ' . $id);
+
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'Slide updated successfully',
+                'data' => $this->carouselModel->find($id)
+            ]);
+        } catch (\Throwable $e) {
+            log_message('error', 'Carousel::update - Exception: ' . $e->getMessage());
+            log_message('error', 'Carousel::update - Stack trace: ' . $e->getTraceAsString());
             return $this->response
-                ->setStatusCode(400)
+                ->setStatusCode(500)
                 ->setJSON([
-                    'error' => 'Validation failed',
-                    'errors' => $this->carouselModel->errors()
+                    'error' => 'Internal server error',
+                    'message' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine()
                 ]);
         }
-
-        return $this->response->setJSON([
-            'success' => true,
-            'message' => 'Slide updated successfully',
-            'data' => $this->carouselModel->find($id)
-        ]);
     }
 
     /**
@@ -129,12 +204,41 @@ class Carousel extends BaseController
     public function uploadImage()
     {
         try {
+            // Log all uploaded files for debugging
+            $files = $this->request->getFiles();
+            log_message('error', 'Carousel::uploadImage - All files: ' . json_encode(array_keys($files)));
+            log_message('error', 'Carousel::uploadImage - Request method: ' . $this->request->getMethod());
+            log_message('error', 'Carousel::uploadImage - Content-Type: ' . $this->request->getHeaderLine('Content-Type'));
+            
             $file = $this->request->getFile('image');
             
-            if (!$file || !$file->isValid()) {
+            if (!$file) {
+                log_message('error', 'Carousel::uploadImage - No file found with key "image"');
+                // Try alternative method
+                $uploadedFiles = $this->request->getFiles();
+                log_message('error', 'Carousel::uploadImage - Available file keys: ' . json_encode(array_keys($uploadedFiles)));
+                
+                // Try to get first file if 'image' key doesn't exist
+                if (!empty($uploadedFiles)) {
+                    $fileKeys = array_keys($uploadedFiles);
+                    $file = $this->request->getFile($fileKeys[0]);
+                    log_message('error', 'Carousel::uploadImage - Trying first file key: ' . $fileKeys[0]);
+                }
+                
+                if (!$file) {
+                    return $this->response
+                        ->setStatusCode(400)
+                        ->setJSON(['error' => 'No file uploaded']);
+                }
+            }
+            
+            if (!$file->isValid()) {
+                $error = $file->getErrorString();
+                log_message('error', 'Carousel::uploadImage - File invalid: ' . $error);
+                log_message('error', 'Carousel::uploadImage - File errors: ' . json_encode($file->getErrors()));
                 return $this->response
                     ->setStatusCode(400)
-                    ->setJSON(['error' => 'No valid file uploaded']);
+                    ->setJSON(['error' => 'Invalid file: ' . $error]);
             }
 
             // Validate file type (images only)
@@ -151,11 +255,32 @@ class Carousel extends BaseController
                     ->setJSON(['error' => 'Invalid file type. Only JPG, PNG, GIF, and WEBP images are allowed.']);
             }
 
-            // Validate file size (max 5MB)
-            if ($file->getSize() > 5 * 1024 * 1024) {
+            // Validate file size (max 850KB)
+            if ($file->getSize() > 850 * 1024) {
                 return $this->response
                     ->setStatusCode(400)
-                    ->setJSON(['error' => 'File size exceeds 5MB limit']);
+                    ->setJSON(['error' => 'File size exceeds 850KB limit']);
+            }
+
+            // Validate image dimensions (912x921px)
+            $imageInfo = @getimagesize($file->getTempName());
+            if ($imageInfo === false) {
+                return $this->response
+                    ->setStatusCode(400)
+                    ->setJSON(['error' => 'Invalid image file']);
+            }
+            
+            $width = $imageInfo[0];
+            $height = $imageInfo[1];
+            $requiredWidth = 912;
+            $requiredHeight = 921;
+            
+            if ($width !== $requiredWidth || $height !== $requiredHeight) {
+                return $this->response
+                    ->setStatusCode(400)
+                    ->setJSON([
+                        'error' => "Image dimensions must be exactly {$requiredWidth}x{$requiredHeight}px. Current: {$width}x{$height}px"
+                    ]);
             }
 
             // Generate unique filename
@@ -171,7 +296,28 @@ class Carousel extends BaseController
             }
 
             if (!$file->hasMoved()) {
+                // Ensure directory exists and is writable
+                if (!is_dir($uploadPath)) {
+                    if (!mkdir($uploadPath, 0755, true)) {
+                        log_message('error', 'Carousel::uploadImage - Failed to create directory: ' . $uploadPath);
+                        return $this->response
+                            ->setStatusCode(500)
+                            ->setJSON(['error' => 'Failed to create upload directory']);
+                    }
+                }
+                
+                if (!is_writable($uploadPath)) {
+                    log_message('error', 'Carousel::uploadImage - Directory not writable: ' . $uploadPath);
+                    return $this->response
+                        ->setStatusCode(500)
+                        ->setJSON(['error' => 'Upload directory is not writable']);
+                }
+                
                 if ($file->move($uploadPath, $newName)) {
+                    $fullPath = $uploadPath . $newName;
+                    log_message('error', 'Carousel::uploadImage - File moved successfully to: ' . $fullPath);
+                    log_message('error', 'Carousel::uploadImage - File exists: ' . (file_exists($fullPath) ? 'YES' : 'NO'));
+                    
                     return $this->response->setJSON([
                         'success' => true,
                         'filename' => $newName,
@@ -180,6 +326,7 @@ class Carousel extends BaseController
                     ]);
                 } else {
                     $errors = $file->getErrors();
+                    log_message('error', 'Carousel::uploadImage - Move failed. Errors: ' . json_encode($errors));
                     return $this->response
                         ->setStatusCode(500)
                         ->setJSON([
@@ -188,6 +335,7 @@ class Carousel extends BaseController
                         ]);
                 }
             } else {
+                log_message('error', 'Carousel::uploadImage - File already moved');
                 return $this->response
                     ->setStatusCode(500)
                     ->setJSON(['error' => 'File already processed']);

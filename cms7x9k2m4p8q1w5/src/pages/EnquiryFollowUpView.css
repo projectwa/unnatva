@@ -1,0 +1,45 @@
+/* Ensure card-body has proper padding */
+.card-cms .card-body {
+  padding: var(--cms-spacing-lg) !important;
+}
+
+.follow-ups-text-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cms-spacing-lg);
+}
+
+.follow-up-item {
+  padding: var(--cms-spacing-md);
+  background-color: var(--cms-gray-50);
+  border-radius: var(--cms-radius-md);
+  border-left: 3px solid var(--cms-primary);
+}
+
+.follow-up-header {
+  margin-bottom: var(--cms-spacing-sm);
+  color: var(--cms-gray-600);
+}
+
+.follow-up-content {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.6;
+  color: var(--cms-gray-800);
+}
+
+.status-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cms-spacing-md);
+}
+
+.status-history-item {
+  padding: var(--cms-spacing-sm) 0;
+  border-bottom: 1px solid var(--cms-gray-200);
+}
+
+.status-history-item:last-child {
+  border-bottom: none;
+}
+

@@ -198,5 +198,128 @@ class ApiService {
   }
 }
 
+/**
+ * Enquiries API (public - no auth required for submission)
+ */
+export const enquiriesAPI = {
+  // Public submission (no auth token needed)
+  submit: async (data) => {
+    // Determine correct API base URL - public API routes are at /api (not /cms7x9k2m4p8q1w5/api)
+    const pathname = window.location.pathname;
+    let apiBase = '/api';
+    if (pathname.includes('/index.php')) {
+      apiBase = '/index.php/api';
+    }
+    
+    const url = `${apiBase}/enquiries`;
+    console.log('Submitting enquiry to:', url);
+    console.log('Enquiry data:', data);
+    
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+      credentials: 'include',
+    });
+
+    console.log('Submit response status:', response.status);
+    const text = await response.text();
+    console.log('Submit response text:', text);
+
+    if (!response.ok) {
+      let error;
+      try {
+        error = JSON.parse(text);
+      } catch (e) {
+        error = { error: text || 'Submission failed' };
+      }
+      throw new Error(error.error || error.message || 'Submission failed');
+    }
+
+    return JSON.parse(text);
+  },
+};
+
+/**
+ * Success Stories API (public - no auth required)
+ */
+export const successStoriesAPI = {
+  // Get all published success stories
+  getAll: async (category = null) => {
+    const pathname = window.location.pathname;
+    let apiBase = '/api';
+    if (pathname.includes('/index.php')) {
+      apiBase = '/index.php/api';
+    }
+    
+    const url = category 
+      ? `${apiBase}/success-stories?category=${encodeURIComponent(category)}`
+      : `${apiBase}/success-stories`;
+    
+    console.log('Fetching success stories from:', url);
+    
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+    });
+
+    console.log('Response status:', response.status);
+    
+    if (!response.ok) {
+      const text = await response.text();
+      console.error('API Error response:', text);
+      let error;
+      try {
+        error = JSON.parse(text);
+      } catch (e) {
+        error = { error: text || 'Failed to load success stories' };
+      }
+      throw new Error(error.error || error.message || 'Failed to load success stories');
+    }
+
+    const result = await response.json();
+    console.log('API Response:', result);
+    return result.data || [];
+  },
+
+  // Get single story by slug
+  getBySlug: async (slug) => {
+    const pathname = window.location.pathname;
+    let apiBase = '/api';
+    if (pathname.includes('/index.php')) {
+      apiBase = '/index.php/api';
+    }
+    
+    const url = `${apiBase}/success-stories/slug/${slug}`;
+    
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      let error;
+      try {
+        error = JSON.parse(text);
+      } catch (e) {
+        error = { error: text || 'Failed to load story' };
+      }
+      throw new Error(error.error || error.message || 'Failed to load story');
+    }
+
+    const result = await response.json();
+    return result.data;
+  },
+};
+
 export default new ApiService();
 

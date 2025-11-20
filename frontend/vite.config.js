@@ -12,7 +12,8 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     build: {
       outDir: '../public/js/react',
-      emptyOutDir: true,
+      // Don't empty the directory - preserve the components folder
+      emptyOutDir: false,
       rollupOptions: {
         input: path.resolve(__dirname, 'src/main.jsx'),
         output: {

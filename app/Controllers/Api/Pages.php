@@ -7,6 +7,7 @@ use App\Models\CarouselSlideModel;
 use App\Models\ImpactStatModel;
 use App\Models\ContentBlockModel;
 use App\Models\JobListingModel;
+use App\Models\MediaItemModel;
 
 /**
  * API Controller for serving page content
@@ -222,9 +223,23 @@ class Pages extends BaseController
      */
     public function getMediaPage()
     {
+        // Get categories for the media gallery
+        $mediaModel = new MediaItemModel();
+        $categories = $mediaModel->select('category')
+            ->distinct()
+            ->where('category IS NOT NULL')
+            ->where('category !=', '')
+            ->orderBy('category', 'ASC')
+            ->findAll();
+        
+        $categoryList = array_map(function($item) {
+            return $item->category;
+        }, $categories);
+        
         $data = [
             'title' => 'Media - UNNATVA',
-            'bodyClass' => 'act_media'
+            'bodyClass' => 'act_media',
+            'categories' => $categoryList
         ];
 
         $html = view('media/content', $data, ['saveData' => false]);

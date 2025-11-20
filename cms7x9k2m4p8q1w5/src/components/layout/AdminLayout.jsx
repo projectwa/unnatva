@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from './Sidebar';
-import TopBar from './TopBar';
 import './AdminLayout.css';
 
 function AdminLayout({ children }) {
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarCollapsed(!sidebarCollapsed);
+  };
+
   return (
     <div className="admin-layout">
-      <Sidebar />
-      <div className="admin-content">
-        <TopBar />
+      <Sidebar collapsed={sidebarCollapsed} onToggle={toggleSidebar} />
+      <div className={`admin-content ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
         <main className="admin-main">
           {children}
         </main>

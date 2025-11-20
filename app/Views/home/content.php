@@ -453,18 +453,8 @@
     </script>
     <!-- whats-happening Modal Script End-->
 
-    <!-- Load React and ReactDOM from CDN (for standalone components) -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    
-    <!-- Load our React components (React Bootstrap is bundled in) -->
-    <?php if (function_exists('js_path')): ?>
-        <script src="<?= js_path('react/components/carousel.js') ?>"></script>
-        <script src="<?= js_path('react/components/counters.js') ?>"></script>
-    <?php else: ?>
-        <script src="<?= base_url('js/react/components/carousel.js') ?>"></script>
-        <script src="<?= base_url('js/react/components/counters.js') ?>"></script>
-    <?php endif; ?>
+    <!-- Note: React and ReactDOM are already loaded in the SPA template -->
+    <!-- Standalone components (carousel.js, counters.js) are loaded dynamically by PageContent component -->
 
 </div>
 <!-- End Home Page Content -->

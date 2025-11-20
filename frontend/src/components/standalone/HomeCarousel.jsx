@@ -27,7 +27,12 @@ function HomeCarousel({ slides = [] }) {
     });
   };
 
+  // Debug logging
+  console.log('HomeCarousel - Slides received:', slides);
+  console.log('HomeCarousel - Slides count:', slides?.length || 0);
+  
   if (!slides || slides.length === 0) {
+    console.warn('HomeCarousel - No slides provided, carousel will not render');
     return null;
   }
 
@@ -45,7 +50,18 @@ function HomeCarousel({ slides = [] }) {
                   </h1>
                 </Col>
                 <Col lg={7} className="position-relative order-1 order-lg-2">
-                  <img className="img-fluid banner-img" src={imgPath(slide.image)} alt="" />
+                  <img 
+                    className="img-fluid banner-img" 
+                    src={imgPath(slide.image)} 
+                    alt={slide.heading || 'Carousel slide'}
+                    onError={(e) => {
+                      console.error('HomeCarousel - Image load error:', imgPath(slide.image), slide);
+                      e.target.style.display = 'none';
+                    }}
+                    onLoad={() => {
+                      console.log('HomeCarousel - Image loaded successfully:', imgPath(slide.image));
+                    }}
+                  />
                 </Col>
               </Row>
             </Container>

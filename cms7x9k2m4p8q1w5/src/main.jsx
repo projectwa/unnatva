@@ -42,13 +42,23 @@ function initApp() {
       
       render() {
         if (this.state.hasError) {
+          const error = this.state.error;
+          const errorMessage = error?.message || error?.toString() || 'An unknown error occurred';
+          const errorStack = error?.stack || 'No stack trace available';
+          
           return (
             <div style={{ padding: '20px', textAlign: 'center' }}>
               <h2>Error Loading CMS</h2>
-              <p>{this.state.error?.message || 'An error occurred'}</p>
-              <pre style={{ textAlign: 'left', background: '#f5f5f5', padding: '10px', maxHeight: '200px', overflow: 'auto' }}>
-                {this.state.error?.stack || 'No stack trace'}
-              </pre>
+              <p>Check browser console (F12) for details.</p>
+              <div style={{ textAlign: 'left', background: '#f5f5f5', padding: '10px', marginTop: '10px', borderRadius: '4px' }}>
+                <p><strong>Error:</strong> {errorMessage}</p>
+                <p><strong>File:</strong> {error?.fileName || 'unknown'}</p>
+                <p><strong>Line:</strong> {error?.lineNumber || 'unknown'}</p>
+                <p><strong>Stack trace:</strong></p>
+                <pre style={{ background: '#fff', padding: '10px', maxHeight: '200px', overflow: 'auto', fontSize: '12px' }}>
+                  {errorStack}
+                </pre>
+              </div>
             </div>
           );
         }
@@ -89,14 +99,31 @@ function initApp() {
 
 // Add global error handlers to prevent page reloads
 window.addEventListener('error', (event) => {
-  console.error('Global error caught:', event.error);
-  event.preventDefault(); // Prevent default error handling
+  console.error('=== GLOBAL ERROR HANDLER ===');
+  console.error('JavaScript Error:', event.error?.message || event.message || 'Unknown error');
+  console.error('Error details:', {
+    error: event.error,
+    message: event.message,
+    filename: event.filename,
+    lineno: event.lineno,
+    colno: event.colno,
+    stack: event.error?.stack
+  });
+  // Don't prevent default - let React Error Boundary handle it
+  // event.preventDefault();
   return false;
 });
 
 window.addEventListener('unhandledrejection', (event) => {
+  console.error('=== UNHANDLED PROMISE REJECTION ===');
   console.error('Unhandled promise rejection:', event.reason);
-  event.preventDefault(); // Prevent default error handling
+  console.error('Reason details:', {
+    reason: event.reason,
+    message: event.reason?.message,
+    stack: event.reason?.stack
+  });
+  // Don't prevent default - let React Error Boundary handle it
+  // event.preventDefault();
   return false;
 });
 

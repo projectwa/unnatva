@@ -1,0 +1,166 @@
+/* Enquiry Form Styles - Matching original Bootstrap modal */
+.enquiry-modal {
+  z-index: 10000 !important;
+}
+
+.enquiry-modal .modal-dialog {
+  max-width: 900px;
+  z-index: 10001 !important;
+}
+
+.enquiry-modal .modal-content {
+  z-index: 10002 !important;
+  position: relative !important;
+}
+
+.enquiry-modal .form-section {
+  border-radius: 8px;
+  padding: 2rem !important;
+}
+
+.enquiry-modal .form-section .alert {
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.enquiry-modal .success-message-text {
+  text-align: left;
+  color: #00a470;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  padding: 1rem 0;
+  width: 100%;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.enquiry-modal .form-section.col-lg-6 .success-message-text {
+  padding-right: 1rem;
+}
+
+.enquiry-modal .success-message-text strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.enquiry-modal .success-message-text span {
+  display: block;
+}
+
+.enquiry-modal .custom-form-control {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #333333 !important;
+}
+
+.enquiry-modal .custom-form-control input {
+  color: #333333 !important;
+}
+
+.enquiry-modal input.custom-form-control,
+.enquiry-modal input[type="text"],
+.enquiry-modal input[type="email"],
+.enquiry-modal .form-control,
+.enquiry-modal .form-control.custom-form-control {
+  color: #333333 !important;
+}
+
+/* Override any Bootstrap or theme colors */
+.enquiry-modal .custom-form-control:not(:placeholder-shown) {
+  color: #333333 !important;
+}
+
+.enquiry-modal input:not([type="checkbox"]):not([type="radio"]) {
+  color: #333333 !important;
+}
+
+.enquiry-modal .custom-form-control::placeholder {
+  color: #6c757d !important;
+  opacity: 1;
+}
+
+.enquiry-modal .custom-form-control::-webkit-input-placeholder {
+  color: #6c757d !important;
+  opacity: 1;
+}
+
+.enquiry-modal .custom-form-control::-moz-placeholder {
+  color: #6c757d !important;
+  opacity: 1;
+}
+
+.enquiry-modal .custom-form-control:-ms-input-placeholder {
+  color: #6c757d !important;
+  opacity: 1;
+}
+
+.enquiry-modal .custom-form-control:focus {
+  border-color: #00a470;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 164, 112, 0.25);
+}
+
+.enquiry-modal .custom-form-control.is-valid {
+  border-color: #28a745;
+}
+
+.enquiry-modal .custom-form-control.is-invalid {
+  border-color: #dc3545;
+}
+
+.enquiry-modal .field-feedback {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.enquiry-modal .impact-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.enquiry-modal .impact-options .form-check {
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.enquiry-modal .impact-options .form-check-label {
+  font-size: 14px;
+  margin-left: 0.5rem;
+}
+
+.enquiry-modal .impact-options .form-check-label.small {
+  font-size: 0.875rem;
+}
+
+.enquiry-modal .rounded-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.enquiry-modal .arrow {
+  margin-left: 8px;
+}
+
+.enquiry-modal h3 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.enquiry-modal .fw-semibold {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+

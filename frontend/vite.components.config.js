@@ -21,6 +21,7 @@ export default defineConfig({
       input: {
         carousel: path.resolve(__dirname, 'src/components/standalone/entry-points/carousel.js'),
         counters: path.resolve(__dirname, 'src/components/standalone/entry-points/counters.js'),
+        'media-gallery': path.resolve(__dirname, 'src/components/standalone/entry-points/media-gallery.js'),
       },
       output: {
         entryFileNames: '[name].js',

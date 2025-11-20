@@ -25,6 +25,7 @@ function CarouselEdit() {
   const [notification, setNotification] = useState(null);
   const [uploadingImage, setUploadingImage] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
+  const fileInputRef = React.useRef(null);
 
   useEffect(() => {
     if (!isNew) {
@@ -90,34 +91,94 @@ function CarouselEdit() {
       return;
     }
 
-    // Validate file size (max 5MB)
-    if (file.size > 5 * 1024 * 1024) {
+    // Validate file size (max 850KB)
+    if (file.size > 850 * 1024) {
       setNotification({
-        message: 'Image size must be less than 5MB',
+        message: 'Image size must not exceed 850KB',
         variant: 'danger'
       });
       return;
     }
 
+    // Validate image dimensions
+    const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
+    
+    img.onload = async () => {
+      URL.revokeObjectURL(objectUrl);
+      
+      const width = img.width;
+      const height = img.height;
+      const requiredWidth = 912;
+      const requiredHeight = 921;
+      
+      if (width !== requiredWidth || height !== requiredHeight) {
+        setNotification({
+          message: `Image dimensions must be exactly ${requiredWidth}x${requiredHeight}px. Current: ${width}x${height}px`,
+          variant: 'danger'
+        });
+        setUploadingImage(false);
+        e.target.value = '';
+        return;
+      }
+      
+      // Continue with upload after dimension validation
+      await performUpload(file, e);
+    };
+    
+    img.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      setNotification({
+        message: 'Failed to load image. Please try another file.',
+        variant: 'danger'
+      });
+      setUploadingImage(false);
+      e.target.value = '';
+    };
+    
+    img.src = objectUrl;
+  };
+
+  const performUpload = async (file, e) => {
     setUploadingImage(true);
     setNotification(null);
 
     try {
       const formData = new FormData();
       formData.append('image', file);
+      
+      console.log('Preparing to upload image:', {
+        fileName: file.name,
+        fileSize: file.size,
+        fileType: file.type
+      });
 
       const result = await carouselAPI.uploadImage(formData);
+      
+      console.log('Upload result:', result);
+      
+      if (!result || !result.filename) {
+        throw new Error('Upload succeeded but no filename returned');
+      }
       
       setFormData(prev => ({
         ...prev,
         image: result.filename
       }));
 
-      // Set preview
+      // Set preview - use the correct path
       if (result.url) {
         setImagePreview(result.url);
       } else {
-        setImagePreview(`/img/${result.filename}`);
+        // Construct preview URL using the same logic as getImageUrl
+        const pathname = window.location.pathname;
+        let basePath = '';
+        if (pathname.includes('/index.php/cms7x9k2m4p8q1w5')) {
+          basePath = pathname.split('/index.php/cms7x9k2m4p8q1w5')[0];
+        } else if (pathname.includes('/cms7x9k2m4p8q1w5')) {
+          basePath = pathname.split('/cms7x9k2m4p8q1w5')[0];
+        }
+        setImagePreview(`${basePath}/img/${result.filename}`);
       }
 
       setNotification({
@@ -125,6 +186,7 @@ function CarouselEdit() {
         variant: 'success'
       });
     } catch (err) {
+      console.error('Image upload error:', err);
       setNotification({
         message: err.message || 'Failed to upload image',
         variant: 'danger'
@@ -149,20 +211,56 @@ function CarouselEdit() {
     if (imageFilename.startsWith('http://') || imageFilename.startsWith('https://')) {
       return imageFilename;
     }
-    const basePath = window.location.pathname.split('/cms7x9k2m4p8q1w5')[0];
+    // Get the base path by removing the CMS path segment
+    let pathname = window.location.pathname;
+    
+    // Handle /index.php/cms7x9k2m4p8q1w5/... pattern
+    if (pathname.includes('/index.php/cms7x9k2m4p8q1w5')) {
+      pathname = pathname.split('/index.php/cms7x9k2m4p8q1w5')[0];
+    }
+    // Handle /cms7x9k2m4p8q1w5/... pattern
+    else if (pathname.includes('/cms7x9k2m4p8q1w5')) {
+      pathname = pathname.split('/cms7x9k2m4p8q1w5')[0];
+    }
+    
+    // If pathname is empty or just '/', use root
+    const basePath = pathname || '';
+    
     return `${basePath}/img/${imageFilename}`;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate that image is provided
+    if (!formData.image || formData.image.trim() === '') {
+      setNotification({
+        message: 'Please upload an image for this slide',
+        variant: 'danger'
+      });
+      return;
+    }
+    
     setSaving(true);
     setNotification(null);
 
     try {
+      // Ensure highlighted_words is an array (not null or undefined)
+      const highlightedWords = Array.isArray(formData.highlighted_words) 
+        ? formData.highlighted_words 
+        : [];
+      
       const data = {
-        ...formData,
-        highlighted_words: formData.highlighted_words
+        heading: formData.heading || '',
+        highlighted_words: highlightedWords,
+        image: formData.image || '',
+        link: formData.link || '',
+        is_active: formData.is_active !== undefined ? formData.is_active : true,
+        sort_order: formData.sort_order !== undefined ? parseInt(formData.sort_order, 10) : 0
       };
+
+      console.log('Submitting carousel data:', data);
+      console.log('highlighted_words type:', typeof data.highlighted_words, Array.isArray(data.highlighted_words));
 
       if (isNew) {
         await carouselAPI.create(data);
@@ -179,6 +277,7 @@ function CarouselEdit() {
       }
       setTimeout(() => navigate('/carousel'), 1500);
     } catch (err) {
+      console.error('Error saving carousel slide:', err);
       setNotification({
         message: err.message || 'Failed to save slide',
         variant: 'danger'
@@ -283,47 +382,48 @@ function CarouselEdit() {
                     </Button>
                   </div>
                   <div className="mt-2">
-                    <Form.Control
-                      type="text"
-                      name="image"
-                      value={formData.image}
-                      onChange={handleChange}
-                      required
-                      className="form-control-cms"
-                      placeholder="image-filename.jpg"
-                    />
                     <Form.Text className="text-muted">
-                      Image filename (or upload new image below)
+                      Current image: {formData.image}
                     </Form.Text>
                   </div>
                 </div>
               ) : (
-                <Form.Control
-                  type="text"
-                  name="image"
-                  value={formData.image}
-                  onChange={handleChange}
-                  required
-                  className="form-control-cms mb-2"
-                  placeholder="image-filename.jpg"
-                />
+                <div className="mb-3">
+                  <div className="alert alert-info" style={{ fontSize: '0.875rem' }}>
+                    <strong>Image Requirements:</strong>
+                    <ul className="mb-0 mt-2" style={{ paddingLeft: '20px' }}>
+                      <li>Dimensions: <strong>912 x 921 pixels</strong> (exact size required)</li>
+                      <li>File size: <strong>Maximum 850KB</strong></li>
+                      <li>Formats: JPG, PNG, GIF, or WEBP</li>
+                    </ul>
+                  </div>
+                </div>
               )}
               
               <div>
-                <Form.Label className="btn btn-outline-secondary btn-sm">
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  disabled={uploadingImage}
+                  style={{ display: 'none' }}
+                />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="btn-cms-outline"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={uploadingImage}
+                >
                   <Upload className="me-2" size={16} />
-                  {uploadingImage ? 'Uploading...' : 'Upload Image'}
-                  <Form.Control
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    disabled={uploadingImage}
-                    style={{ display: 'none' }}
-                  />
-                </Form.Label>
-                <Form.Text className="d-block text-muted">
-                  Upload an image file (JPG, PNG, GIF, WEBP - max 5MB)
-                </Form.Text>
+                  {uploadingImage ? 'Uploading...' : imagePreview ? 'Replace Image' : 'Upload Image'}
+                </Button>
+                {!imagePreview && (
+                  <Form.Text className="d-block text-muted mt-2">
+                    Please upload an image file matching the requirements above
+                  </Form.Text>
+                )}
               </div>
             </Form.Group>
 

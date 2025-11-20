@@ -243,10 +243,13 @@ export const carouselAPI = {
       API_BASE = '/index.php/cms7x9k2m4p8q1w5/api';
     }
 
+    // Don't set Content-Type header - browser will set it automatically with boundary for FormData
     const headers = {};
     if (token) {
       headers['Authorization'] = `Bearer ${token}`;
     }
+
+    console.log('Uploading image to:', `${API_BASE}/carousel/upload-image`);
 
     const response = await fetch(`${API_BASE}/carousel/upload-image`, {
       method: 'POST',
@@ -255,8 +258,12 @@ export const carouselAPI = {
       credentials: 'include',
     });
 
+    console.log('Upload response status:', response.status);
+    console.log('Upload response headers:', Object.fromEntries(response.headers.entries()));
+
     if (!response.ok) {
       const text = await response.text();
+      console.error('Upload error response:', text);
       let error;
       try {
         error = JSON.parse(text);
@@ -266,7 +273,9 @@ export const carouselAPI = {
       throw new Error(error.error || error.message || 'Upload failed');
     }
 
-    return await response.json();
+    const result = await response.json();
+    console.log('Upload success result:', result);
+    return result;
   },
 };
 
@@ -307,8 +316,10 @@ export const impactStatsAPI = {
  * Success Stories API
  */
 export const successStoriesAPI = {
-  list: async () => {
-    return apiRequest('/success-stories');
+  list: async (params = {}) => {
+    const queryString = new URLSearchParams(params).toString();
+    const url = queryString ? `/success-stories?${queryString}` : '/success-stories';
+    return apiRequest(url);
   },
 
   get: async (id) => {
@@ -334,14 +345,50 @@ export const successStoriesAPI = {
       method: 'DELETE',
     });
   },
+
+  uploadImage: async (formData) => {
+    const token = getAuthToken();
+    const pathname = window.location.pathname;
+    let API_BASE = '/cms7x9k2m4p8q1w5/api';
+    if (pathname.includes('/index.php/cms7x9k2m4p8q1w5')) {
+      API_BASE = '/index.php/cms7x9k2m4p8q1w5/api';
+    }
+
+    const headers = {};
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    const response = await fetch(`${API_BASE}/success-stories/upload-image`, {
+      method: 'POST',
+      headers,
+      body: formData,
+      credentials: 'include',
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      let error;
+      try {
+        error = JSON.parse(text);
+      } catch (e) {
+        error = { error: text || 'Upload failed' };
+      }
+      throw new Error(error.error || error.message || 'Upload failed');
+    }
+
+    return response.json();
+  },
 };
 
 /**
  * Media Items API
  */
 export const mediaAPI = {
-  list: async () => {
-    return apiRequest('/media-items');
+  list: async (params = {}) => {
+    const queryString = new URLSearchParams(params).toString();
+    const url = queryString ? `/media-items?${queryString}` : '/media-items';
+    return apiRequest(url);
   },
 
   get: async (id) => {
@@ -362,9 +409,86 @@ export const mediaAPI = {
     });
   },
 
+  updateCaptionAlt: async (id, data) => {
+    return apiRequest(`/media-items/${id}/caption-alt`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+  },
+
   delete: async (id) => {
     return apiRequest(`/media-items/${id}`, {
       method: 'DELETE',
+    });
+  },
+
+  uploadMultiple: async (formData) => {
+    const token = getAuthToken();
+    const pathname = window.location.pathname;
+    let API_BASE = '/cms7x9k2m4p8q1w5/api';
+    if (pathname.includes('/index.php/cms7x9k2m4p8q1w5')) {
+      API_BASE = '/index.php/cms7x9k2m4p8q1w5/api';
+    }
+
+    const headers = {};
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    const response = await fetch(`${API_BASE}/media-items/upload`, {
+      method: 'POST',
+      headers,
+      body: formData,
+      credentials: 'include',
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      let error;
+      try {
+        error = JSON.parse(text);
+      } catch (e) {
+        error = { error: text || 'Upload failed' };
+      }
+      throw new Error(error.error || error.message || 'Upload failed');
+    }
+
+    return response.json();
+  },
+};
+
+export const mediaCategoriesAPI = {
+  list: async () => {
+    return apiRequest('/media-categories');
+  },
+
+  get: async (id) => {
+    return apiRequest(`/media-categories/${id}`);
+  },
+
+  create: async (data) => {
+    return apiRequest('/media-categories', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  },
+
+  update: async (id, data) => {
+    return apiRequest(`/media-categories/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+  },
+
+  delete: async (id) => {
+    return apiRequest(`/media-categories/${id}`, {
+      method: 'DELETE',
+    });
+  },
+
+  toggleActive: async (id) => {
+    return apiRequest(`/media-categories/${id}/toggle-active`, {
+      method: 'POST',
     });
   },
 };
@@ -706,6 +830,114 @@ export const jobApplicationsAPI = {
     document.body.removeChild(a);
 
     return { success: true, filename };
+  },
+};
+
+export const enquiriesAPI = {
+  list: async (filters = {}) => {
+    const params = new URLSearchParams();
+    if (filters.status) params.append('status', filters.status);
+    if (filters.source_page) params.append('source_page', filters.source_page);
+    if (filters.search) params.append('search', filters.search);
+    
+    const queryString = params.toString();
+    const endpoint = queryString ? `/enquiries?${queryString}` : '/enquiries';
+    return apiRequest(endpoint);
+  },
+
+  get: async (id) => {
+    return apiRequest(`/enquiries/${id}`);
+  },
+
+  update: async (id, data) => {
+    return apiRequest(`/enquiries/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+  },
+
+  delete: async (id) => {
+    return apiRequest(`/enquiries/${id}`, {
+      method: 'DELETE',
+    });
+  },
+
+  exportExcel: async (filters = {}) => {
+    const token = getAuthToken();
+    const pathname = window.location.pathname;
+    let API_BASE = '/cms7x9k2m4p8q1w5/api';
+    if (pathname.includes('/index.php/cms7x9k2m4p8q1w5')) {
+      API_BASE = '/index.php/cms7x9k2m4p8q1w5/api';
+    }
+
+    const headers = {};
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    const params = new URLSearchParams();
+    if (filters.status) params.append('status', filters.status);
+    if (filters.source_page) params.append('source_page', filters.source_page);
+    
+    const queryString = params.toString();
+    const url = queryString
+      ? `${API_BASE}/enquiries/export/excel?${queryString}`
+      : `${API_BASE}/enquiries/export/excel`;
+
+    const response = await fetch(url, {
+      method: 'GET',
+      headers,
+      credentials: 'include',
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      let error;
+      try {
+        error = JSON.parse(text);
+      } catch (e) {
+        error = { error: text || 'Export failed' };
+      }
+      throw new Error(error.error || error.message || 'Export failed');
+    }
+
+    // Get filename from Content-Disposition header or use default
+    const contentDisposition = response.headers.get('Content-Disposition');
+    let filename = `enquiries_${new Date().toISOString().split('T')[0]}.csv`;
+    if (contentDisposition) {
+      const filenameMatch = contentDisposition.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/i);
+      if (filenameMatch) {
+        filename = filenameMatch[1].replace(/^["']|["']$/g, '').trim(); // Remove surrounding quotes and trim
+      }
+    }
+
+    // Convert response to blob and trigger download
+    const blob = await response.blob();
+    const url_blob = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url_blob;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url_blob);
+    document.body.removeChild(a);
+
+    return { success: true, filename };
+  },
+
+  getFollowUps: async (id) => {
+    return apiRequest(`/enquiries/${id}/follow-ups`);
+  },
+
+  addFollowUp: async (id, followUpText) => {
+    return apiRequest(`/enquiries/${id}/follow-ups`, {
+      method: 'POST',
+      body: JSON.stringify({ follow_up_text: followUpText }),
+    });
+  },
+
+  getStatusHistory: async (id) => {
+    return apiRequest(`/enquiries/${id}/status-history`);
   },
 };
 

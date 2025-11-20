@@ -18,6 +18,8 @@ import ContentBlocksEdit from '../pages/ContentBlocksEdit';
 import JobsList from '../pages/JobsList';
 import JobsEdit from '../pages/JobsEdit';
 import JobApplicationsList from '../pages/JobApplicationsList';
+import EnquiriesList from '../pages/EnquiriesList';
+import EnquiryFollowUpView from '../pages/EnquiryFollowUpView';
 import AdminLayout from '../components/layout/AdminLayout';
 import { authAPI } from '../services/api';
 
@@ -147,6 +149,9 @@ function Router() {
       <Route path="/jobs/new" element={<AdminLayout><JobsEdit /></AdminLayout>} />
       <Route path="/jobs/:id" element={<AdminLayout><JobsEdit /></AdminLayout>} />
       <Route path="/job-applications" element={<AdminLayout><JobApplicationsList /></AdminLayout>} />
+      <Route path="/job-applications/job/:jobId" element={<AdminLayout><JobApplicationsList /></AdminLayout>} />
+      <Route path="/enquiries" element={<AdminLayout><EnquiriesList /></AdminLayout>} />
+      <Route path="/enquiries/:id/follow-up" element={<AdminLayout><EnquiryFollowUpView /></AdminLayout>} />
     </Routes>
   );
 }

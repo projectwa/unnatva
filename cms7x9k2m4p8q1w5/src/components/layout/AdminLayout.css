@@ -9,6 +9,11 @@
   margin-left: 250px; /* Sidebar width */
   display: flex;
   flex-direction: column;
+  transition: margin-left var(--cms-transition);
+}
+
+.admin-content.sidebar-collapsed {
+  margin-left: 70px; /* Collapsed sidebar width */
 }
 
 .admin-main {

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Card, Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Card, Form, Button, Row, Col, Alert } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Save } from 'react-bootstrap-icons';
-import { mediaAPI } from '../services/api';
+import { ArrowLeft, Upload, X } from 'react-bootstrap-icons';
+import { mediaAPI, mediaCategoriesAPI } from '../services/api';
 import AlertNotification from '../components/common/AlertNotification';
 import './MediaEdit.css';
 
@@ -11,114 +11,161 @@ function MediaEdit() {
   const navigate = useNavigate();
   const isNew = !id;
 
-  const [formData, setFormData] = useState({
-    filename: '',
-    original_filename: '',
-    file_path: '',
-    file_type: '',
-    mime_type: '',
-    file_size: '',
-    width: '',
-    height: '',
-    alt_text: '',
-    caption: '',
-    category: '',
-    tags: [],
-  });
-  const [tagsInput, setTagsInput] = useState('');
-  const [loading, setLoading] = useState(!isNew);
-  const [saving, setSaving] = useState(false);
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [categories, setCategories] = useState([]);
+  const [uploading, setUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState({});
   const [notification, setNotification] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (!isNew) {
-      loadMedia();
+    if (isNew) {
+      loadCategories();
+    } else {
+      // If editing, redirect to list (editing is done via modal now)
+      navigate('/media');
     }
-  }, [id]);
+  }, [id, isNew, navigate]);
 
-  const loadMedia = async () => {
+  const loadCategories = async () => {
     try {
       setLoading(true);
-      const result = await mediaAPI.get(id);
-      const item = result.data;
-      setFormData(item);
-      setTagsInput(Array.isArray(item.tags) ? item.tags.join(', ') : '');
+      const result = await mediaCategoriesAPI.list();
+      if (result && result.data) {
+        const activeCategories = result.data
+          .filter(cat => cat.is_active)
+          .map(cat => cat.name);
+        setCategories(activeCategories);
+      }
     } catch (err) {
-      setNotification({
-        message: err.message || 'Failed to load media item',
-        variant: 'danger'
-      });
+      console.error('Error loading categories:', err);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  const handleFileSelect = (e) => {
+    const files = Array.from(e.target.files);
+    const validFiles = [];
+    const errors = [];
+
+    files.forEach((file) => {
+      // Validate file type
+      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+      const allowedExtensions = ['jpg', 'jpeg', 'png', 'webp'];
+      const extension = file.name.split('.').pop().toLowerCase();
+      const mimeType = file.type;
+
+      if (!allowedExtensions.includes(extension) || !allowedTypes.includes(mimeType)) {
+        errors.push(`${file.name}: Invalid file type. Only JPEG, PNG, and WEBP images are allowed.`);
+        return;
+      }
+
+      // Validate file size (max 850KB)
+      if (file.size > 850 * 1024) {
+        errors.push(`${file.name}: File size exceeds 850KB limit.`);
+        return;
+      }
+
+      validFiles.push(file);
+    });
+
+    if (errors.length > 0) {
+      setNotification({
+        message: errors.join('\n'),
+        variant: 'danger'
+      });
+    }
+
+    setSelectedFiles(prev => [...prev, ...validFiles]);
+    e.target.value = ''; // Reset input
   };
 
-  const handleTagsChange = (e) => {
-    const value = e.target.value;
-    setTagsInput(value);
-    const tags = value.split(',').map(t => t.trim()).filter(t => t);
-    setFormData(prev => ({
-      ...prev,
-      tags: tags
-    }));
+  const removeFile = (index) => {
+    setSelectedFiles(prev => prev.filter((_, i) => i !== index));
   };
 
-  const handleSubmit = async (e) => {
+  const handleUpload = async (e) => {
     e.preventDefault();
-    setSaving(true);
+
+    if (selectedFiles.length === 0) {
+      setNotification({
+        message: 'Please select at least one image to upload',
+        variant: 'warning'
+      });
+      return;
+    }
+
+    if (!selectedCategory || selectedCategory === '') {
+      setNotification({
+        message: 'Please select a category',
+        variant: 'warning'
+      });
+      return;
+    }
+
+    setUploading(true);
     setNotification(null);
+    setUploadProgress({});
 
     try {
-      const data = {
-        ...formData,
-        file_size: formData.file_size ? parseInt(formData.file_size) : null,
-        width: formData.width ? parseInt(formData.width) : null,
-        height: formData.height ? parseInt(formData.height) : null,
-        tags: formData.tags
-      };
-
-      if (isNew) {
-        await mediaAPI.create(data);
-        setNotification({
-          message: 'Media item created successfully',
-          variant: 'success'
-        });
-      } else {
-        await mediaAPI.update(id, data);
-        setNotification({
-          message: 'Media item updated successfully',
-          variant: 'success'
-        });
+      const formData = new FormData();
+      
+      // Append all files - use 'images' as key for multiple files
+      selectedFiles.forEach((file) => {
+        formData.append('images[]', file);
+      });
+      
+      // Append category if selected
+      if (selectedCategory) {
+        formData.append('category', selectedCategory);
       }
-      setTimeout(() => navigate('/media'), 1500);
+
+      const result = await mediaAPI.uploadMultiple(formData);
+
+      if (result.success) {
+        const successCount = result.data ? result.data.length : 0;
+        const errorCount = result.errors ? result.errors.length : 0;
+        
+        let message = `${successCount} file(s) uploaded successfully.`;
+        if (errorCount > 0) {
+          message += ` ${errorCount} file(s) failed: ${result.errors.join(', ')}`;
+        }
+
+        setNotification({
+          message,
+          variant: errorCount > 0 ? 'warning' : 'success'
+        });
+
+        // Clear form
+        setSelectedFiles([]);
+        setSelectedCategory('');
+
+        // Redirect to media list after a short delay
+        setTimeout(() => {
+          navigate('/media');
+        }, 2000);
+      }
     } catch (err) {
       setNotification({
-        message: err.message || 'Failed to save media item',
+        message: err.message || 'Failed to upload images',
         variant: 'danger'
       });
     } finally {
-      setSaving(false);
+      setUploading(false);
+      setUploadProgress({});
     }
   };
 
-  if (loading) {
-    return (
-      <Container>
-        <div className="cms-loading">
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      </Container>
-    );
+  const formatFileSize = (bytes) => {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+  };
+
+  if (!isNew) {
+    return null; // Editing is done via modal
   }
 
   return (
@@ -134,8 +181,8 @@ function MediaEdit() {
 
       <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
-          <h1 className="h3 mb-2">{isNew ? 'Upload New Media' : 'Edit Media Item'}</h1>
-          <p className="text-muted small">Manage media files</p>
+          <h1 className="h3 mb-2">Upload Multiple Images</h1>
+          <p className="text-muted small">Upload multiple images at once (Max 850KB per image, JPEG/PNG/WEBP only)</p>
         </div>
         <Button
           variant="outline"
@@ -149,194 +196,84 @@ function MediaEdit() {
 
       <Card className="card-cms">
         <Card.Body>
-          <Form onSubmit={handleSubmit}>
-            <Row>
-              <Col md={6}>
-                <Form.Group className="mb-3">
-                  <Form.Label>Filename *</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="filename"
-                    value={formData.filename}
-                    onChange={handleChange}
-                    required
-                    className="form-control-cms"
-                    placeholder="e.g., image.jpg"
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={6}>
-                <Form.Group className="mb-3">
-                  <Form.Label>Original Filename</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="original_filename"
-                    value={formData.original_filename}
-                    onChange={handleChange}
-                    className="form-control-cms"
-                    placeholder="Original filename"
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
-
+          <Form onSubmit={handleUpload}>
             <Form.Group className="mb-3">
-              <Form.Label>File Path *</Form.Label>
-              <Form.Control
-                type="text"
-                name="file_path"
-                value={formData.file_path}
-                onChange={handleChange}
+              <Form.Label>Category *</Form.Label>
+              <Form.Select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="form-control-cms"
                 required
-                className="form-control-cms"
-                placeholder="e.g., /uploads/images/image.jpg"
-              />
-            </Form.Group>
-
-            <Row>
-              <Col md={6}>
-                <Form.Group className="mb-3">
-                  <Form.Label>File Type *</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="file_type"
-                    value={formData.file_type}
-                    onChange={handleChange}
-                    required
-                    className="form-control-cms"
-                    placeholder="e.g., image, video, document"
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={6}>
-                <Form.Group className="mb-3">
-                  <Form.Label>MIME Type</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="mime_type"
-                    value={formData.mime_type}
-                    onChange={handleChange}
-                    className="form-control-cms"
-                    placeholder="e.g., image/jpeg"
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col md={4}>
-                <Form.Group className="mb-3">
-                  <Form.Label>File Size (bytes)</Form.Label>
-                  <Form.Control
-                    type="number"
-                    name="file_size"
-                    value={formData.file_size}
-                    onChange={handleChange}
-                    className="form-control-cms"
-                    placeholder="File size in bytes"
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={4}>
-                <Form.Group className="mb-3">
-                  <Form.Label>Width</Form.Label>
-                  <Form.Control
-                    type="number"
-                    name="width"
-                    value={formData.width}
-                    onChange={handleChange}
-                    className="form-control-cms"
-                    placeholder="Image width in pixels"
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={4}>
-                <Form.Group className="mb-3">
-                  <Form.Label>Height</Form.Label>
-                  <Form.Control
-                    type="number"
-                    name="height"
-                    value={formData.height}
-                    onChange={handleChange}
-                    className="form-control-cms"
-                    placeholder="Image height in pixels"
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Alt Text</Form.Label>
-              <Form.Control
-                type="text"
-                name="alt_text"
-                value={formData.alt_text}
-                onChange={handleChange}
-                className="form-control-cms"
-                placeholder="Alternative text for images"
-              />
+              >
+                <option value="">Select a category</option>
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </Form.Select>
+              <Form.Text className="text-muted">
+                Select a category to organize your images (required)
+              </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Caption</Form.Label>
+              <Form.Label>Select Images *</Form.Label>
               <Form.Control
-                as="textarea"
-                rows={3}
-                name="caption"
-                value={formData.caption}
-                onChange={handleChange}
+                type="file"
+                accept="image/jpeg,image/jpg,image/png,image/webp"
+                multiple
+                onChange={handleFileSelect}
                 className="form-control-cms"
-                placeholder="Media caption"
+                disabled={uploading}
               />
+              <Form.Text className="text-muted">
+                Select multiple images. Each image must be JPEG, PNG, or WEBP format and not exceed 850KB.
+              </Form.Text>
             </Form.Group>
 
-            <Row>
-              <Col md={6}>
-                <Form.Group className="mb-3">
-                  <Form.Label>Category</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="category"
-                    value={formData.category}
-                    onChange={handleChange}
-                    className="form-control-cms"
-                    placeholder="e.g., photos, videos, documents"
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={6}>
-                <Form.Group className="mb-3">
-                  <Form.Label>Tags (comma-separated)</Form.Label>
-                  <Form.Control
-                    type="text"
-                    value={tagsInput}
-                    onChange={handleTagsChange}
-                    className="form-control-cms"
-                    placeholder="e.g., event, team, 2024"
-                  />
-                  <Form.Text className="text-muted">
-                    Separate tags with commas
-                  </Form.Text>
-                </Form.Group>
-              </Col>
-            </Row>
+            {selectedFiles.length > 0 && (
+              <div className="mb-3">
+                <Form.Label>Selected Files ({selectedFiles.length})</Form.Label>
+                <div className="selected-files-list">
+                  {selectedFiles.map((file, index) => (
+                    <div key={index} className="selected-file-item">
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div className="flex-grow-1">
+                          <div className="fw-bold">{file.name}</div>
+                          <div className="text-muted small">{formatFileSize(file.size)}</div>
+                        </div>
+                        <Button
+                          variant="outline-danger"
+                          size="sm"
+                          onClick={() => removeFile(index)}
+                          disabled={uploading}
+                        >
+                          <X size={16} />
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="d-flex gap-2 justify-content-end">
               <Button
                 variant="outline"
                 className="btn-cms-outline"
                 onClick={() => navigate('/media')}
-                disabled={saving}
+                disabled={uploading}
               >
                 Cancel
               </Button>
               <Button
                 type="submit"
                 className="btn-cms-primary"
-                disabled={saving}
+                disabled={uploading || selectedFiles.length === 0 || !selectedCategory}
               >
-                <Save className="me-2" size={18} />
-                {saving ? 'Saving...' : 'Save'}
+                <Upload className="me-2" size={18} />
+                {uploading ? 'Uploading...' : `Upload ${selectedFiles.length > 0 ? `${selectedFiles.length} ` : ''}Image(s)`}
               </Button>
             </div>
           </Form>

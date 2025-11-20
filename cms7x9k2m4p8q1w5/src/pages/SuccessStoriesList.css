@@ -1,124 +1,139 @@
-.success-stories-list {
-  padding: 2rem;
-}
-
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.page-header h1 {
-  margin: 0;
-  color: #333;
-}
-
-/* Button styles removed - using theme.css .btn-cms-primary instead */
-
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  border-radius: 8px;
+/* Compact Success Stories Table Styles */
+.stories-table-wrapper {
+  background: var(--cms-white);
+  border-radius: var(--cms-radius-lg);
+  box-shadow: var(--cms-shadow-sm);
+  border: 1px solid var(--cms-gray-200);
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.data-table thead {
-  background: #f8f9fa;
+.stories-compact-table {
+  margin-bottom: 0;
 }
 
-.data-table th {
-  padding: 1rem;
-  text-align: left;
-  font-weight: 600;
-  color: #333;
-  border-bottom: 2px solid #e9ecef;
-}
-
-.data-table td {
-  padding: 1rem;
-  border-bottom: 1px solid #e9ecef;
-}
-
-.data-table tbody tr:hover {
-  background: #f8f9fa;
-}
-
-.clickable-row {
-  cursor: pointer;
-}
-
-.status-badge {
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.status-badge.active {
-  background: #d4edda;
-  color: #155724;
-}
-
-.status-badge.inactive {
-  background: #f8d7da;
-  color: #721c24;
-}
-
-.btn-edit,
-.btn-delete {
-  padding: 0.5rem 1rem;
-  margin-right: 0.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  transition: background 0.3s;
-}
-
-.btn-edit {
-  background: #667eea;
-  color: white;
-}
-
-.btn-edit:hover {
-  background: #5568d3;
-}
-
-.btn-delete {
-  background: #e74c3c;
-  color: white;
-}
-
-.btn-delete:hover {
-  background: #c0392b;
-}
-
-.text-center {
-  text-align: center;
-  color: #999;
-}
-
-.error-message {
-  background: #fee;
-  color: #c33;
-  padding: 1rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-}
-
-.loading {
-  padding: 2rem;
-  text-align: center;
-  color: #666;
-}
-
-.quote-cell {
-  max-width: 300px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.stories-compact-table thead th {
+  background-color: rgba(0, 164, 112, 0.05); /* Very light shade of primary color */
+  font-weight: var(--cms-font-weight-semibold);
+  font-size: var(--cms-font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: var(--cms-spacing-md);
+  border-bottom: 2px solid var(--cms-primary-light);
   white-space: nowrap;
+  color: var(--cms-gray-800);
 }
 
+.story-main-row {
+  transition: background-color 0.2s ease;
+}
+
+.story-main-row:hover {
+  background-color: var(--cms-gray-50);
+}
+
+.story-main-row td {
+  padding: var(--cms-spacing-md);
+  vertical-align: middle;
+  border-bottom: 1px solid var(--cms-gray-200);
+}
+
+.expand-btn {
+  color: var(--cms-gray-600);
+  transition: transform 0.2s ease;
+}
+
+.expand-btn:hover {
+  color: var(--cms-primary);
+  transform: scale(1.1);
+}
+
+.story-details-row {
+  background-color: rgba(0, 164, 112, 0.08) !important; /* Light green shade */
+}
+
+.story-details-row td {
+  padding: 0;
+  border-bottom: 2px solid var(--cms-gray-200);
+  background-color: rgba(0, 164, 112, 0.08) !important; /* Override Bootstrap's table bg */
+  box-shadow: none !important; /* Remove Bootstrap's box-shadow that might interfere */
+}
+
+/* Override Bootstrap table styles for expanded rows */
+.stories-compact-table .story-details-row td {
+  background-color: rgba(0, 164, 112, 0.08) !important;
+  box-shadow: none !important;
+}
+
+.story-details-content {
+  padding: var(--cms-spacing-lg);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--cms-spacing-sm);
+  padding: var(--cms-spacing-sm) 0;
+}
+
+.detail-icon {
+  color: var(--cms-primary);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.detail-label {
+  font-size: var(--cms-font-size-sm);
+  font-weight: var(--cms-font-weight-semibold);
+  color: var(--cms-gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+.detail-value {
+  font-size: var(--cms-font-size-base);
+  color: var(--cms-gray-800);
+  word-wrap: break-word;
+}
+
+.detail-value.story-text {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: var(--cms-spacing-sm);
+  background-color: var(--cms-white);
+  border-radius: var(--cms-radius-sm);
+  border: 1px solid var(--cms-gray-200);
+}
+
+.filter-section {
+  background: var(--cms-white);
+  border-radius: var(--cms-radius-lg);
+  box-shadow: var(--cms-shadow-sm);
+  border: 1px solid var(--cms-gray-200);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .stories-compact-table {
+    font-size: var(--cms-font-size-sm);
+  }
+  
+  .stories-compact-table thead th,
+  .story-main-row td {
+    padding: var(--cms-spacing-sm);
+  }
+}

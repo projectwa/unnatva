@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Card, Form, Button, Row, Col } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Save } from 'react-bootstrap-icons';
+import { ArrowLeft, Save, Image as ImageIcon, X } from 'react-bootstrap-icons';
 import { successStoriesAPI } from '../services/api';
 import AlertNotification from '../components/common/AlertNotification';
 import './SuccessStoriesEdit.css';
@@ -29,7 +29,9 @@ function SuccessStoriesEdit() {
   });
   const [loading, setLoading] = useState(!isNew);
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [notification, setNotification] = useState(null);
+  const [imagePreview, setImagePreview] = useState('');
 
   useEffect(() => {
     if (!isNew) {
@@ -42,6 +44,9 @@ function SuccessStoriesEdit() {
       setLoading(true);
       const result = await successStoriesAPI.get(id);
       setFormData(result.data);
+      if (result.data.image) {
+        setImagePreview(result.data.image);
+      }
     } catch (err) {
       setNotification({
         message: err.message || 'Failed to load story',
@@ -50,6 +55,84 @@ function SuccessStoriesEdit() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    // Validate file type
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+    const allowedExtensions = ['jpg', 'jpeg', 'png', 'webp'];
+    const fileExtension = file.name.split('.').pop().toLowerCase();
+    
+    if (!allowedTypes.includes(file.type) && !allowedExtensions.includes(fileExtension)) {
+      setNotification({
+        message: 'Invalid file type. Only JPEG, PNG, and WEBP images are allowed.',
+        variant: 'danger'
+      });
+      e.target.value = ''; // Reset file input
+      return;
+    }
+
+    // Validate file size (850KB max)
+    if (file.size > 850 * 1024) {
+      setNotification({
+        message: 'File size must be less than 850KB',
+        variant: 'danger'
+      });
+      e.target.value = ''; // Reset file input
+      return;
+    }
+
+    setUploading(true);
+    setNotification(null);
+
+    try {
+      const uploadData = new FormData();
+      uploadData.append('image', file);
+      const result = await successStoriesAPI.uploadImage(uploadData);
+      
+      if (result.success) {
+        setFormData(prev => ({
+          ...prev,
+          image: result.filename
+        }));
+        setImagePreview(result.filename);
+        setNotification({
+          message: 'Image uploaded successfully',
+          variant: 'success'
+        });
+      } else {
+        setNotification({
+          message: result.error || result.message || 'Upload failed',
+          variant: 'danger'
+        });
+      }
+    } catch (err) {
+      setNotification({
+        message: err.message || 'Failed to upload image',
+        variant: 'danger'
+      });
+    } finally {
+      setUploading(false);
+      e.target.value = ''; // Reset file input
+    }
+  };
+
+  const getImageUrl = (filename) => {
+    if (!filename) return null;
+    if (filename.startsWith('http://') || filename.startsWith('https://')) {
+      return filename;
+    }
+    let pathname = window.location.pathname;
+    if (pathname.includes('/index.php/cms7x9k2m4p8q1w5')) {
+      pathname = pathname.split('/index.php/cms7x9k2m4p8q1w5')[0];
+    } else if (pathname.includes('/cms7x9k2m4p8q1w5')) {
+      pathname = pathname.split('/cms7x9k2m4p8q1w5')[0];
+    }
+    const basePath = pathname || '';
+    return `${basePath}/img/${filename}`;
   };
 
   const handleChange = (e) => {
@@ -152,15 +235,19 @@ function SuccessStoriesEdit() {
               <Col md={6}>
                 <Form.Group className="mb-3">
                   <Form.Label>Category *</Form.Label>
-                  <Form.Control
-                    type="text"
+                  <Form.Select
                     name="category"
                     value={formData.category}
                     onChange={handleChange}
                     required
                     className="form-control-cms"
-                    placeholder="Entrepreneurship, Education"
-                  />
+                  >
+                    <option value="">Select a category</option>
+                    <option value="entrepreneurship-development">Entrepreneurship Development</option>
+                    <option value="skill-development">Skill Development</option>
+                    <option value="women-empowerment">Women Empowerment</option>
+                    <option value="education">Education</option>
+                  </Form.Select>
                 </Form.Group>
               </Col>
             </Row>
@@ -206,15 +293,63 @@ function SuccessStoriesEdit() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Image</Form.Label>
+              <Form.Label>
+                <ImageIcon className="me-2" size={18} />
+                Image
+              </Form.Label>
               <Form.Control
-                type="text"
-                name="image"
-                value={formData.image}
-                onChange={handleChange}
+                type="file"
+                accept="image/jpeg,image/jpg,image/png,image/webp"
+                onChange={handleImageUpload}
+                disabled={uploading}
                 className="form-control-cms"
-                placeholder="Image filename or URL"
               />
+              <Form.Text className="text-muted">
+                Accepted formats: JPEG, PNG, WEBP. Maximum file size: 850KB
+              </Form.Text>
+              {uploading && (
+                <Form.Text className="text-muted d-block">Uploading...</Form.Text>
+              )}
+              {imagePreview && (
+                <div className="mt-2">
+                  <img 
+                    src={getImageUrl(imagePreview)} 
+                    alt="Preview" 
+                    style={{ maxWidth: '200px', maxHeight: '200px', marginRight: '10px', borderRadius: '8px' }}
+                    onError={(e) => {
+                      e.target.src = getImageUrl(imagePreview);
+                    }}
+                  />
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="btn-cms-outline mt-2"
+                    onClick={() => {
+                      setImagePreview('');
+                      setFormData(prev => ({ ...prev, image: '' }));
+                    }}
+                  >
+                    <X className="me-1" size={14} />
+                    Remove
+                  </Button>
+                </div>
+              )}
+              {!imagePreview && formData.image && (
+                <div className="mt-2">
+                  <Form.Text className="text-muted">Current image: {formData.image}</Form.Text>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="btn-cms-outline ms-2"
+                    onClick={() => {
+                      setFormData(prev => ({ ...prev, image: '' }));
+                    }}
+                  >
+                    <X className="me-1" size={14} />
+                    Clear
+                  </Button>
+                </div>
+              )}
             </Form.Group>
 
             <Row>

@@ -200,6 +200,12 @@ body {
   box-shadow: var(--cms-shadow-md);
 }
 
+/* Remove border from filter cards in list views */
+.card-cms.filter-section {
+  border: none !important;
+  box-shadow: none !important;
+}
+
 /* Card Header Styles - Subtle theme shade */
 .card-cms .card-header,
 .card .card-header {

@@ -11,6 +11,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [react()],
+  define: {
+    'process.env': '{}',
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  },
   build: {
     outDir: '../public/js/react/components',
     emptyOutDir: false,

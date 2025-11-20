@@ -8,8 +8,9 @@
     "build": "vite build",
     "build:carousel": "vite build --config vite.carousel.config.js",
     "build:counters": "vite build --config vite.counters.config.js",
-    "build:components": "npm run build:carousel && npm run build:counters",
-    "build:all": "npm run build && npm run build:components",
+    "build:media-gallery": "vite build --config vite.media-gallery.config.js",
+    "build:components": "npm run build:carousel && npm run build:counters && npm run build:media-gallery",
+    "build:all": "npm run build:components && npm run build",
     "preview": "vite preview"
   },
   "dependencies": {

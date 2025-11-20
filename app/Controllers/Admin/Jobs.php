@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\JobListingModel;
+use App\Models\JobApplicationModel;
 
 class Jobs extends BaseController
 {
@@ -15,12 +16,39 @@ class Jobs extends BaseController
     }
 
     /**
-     * List all job listings
+     * List all job listings with application counts
      */
     public function index()
     {
         try {
             $jobs = $this->jobListingModel->orderBy('sort_order', 'ASC')->findAll();
+            
+            // Get application counts for all jobs in a single query
+            $jobApplicationModel = new JobApplicationModel();
+            $applicationCounts = [];
+            
+            if (!empty($jobs)) {
+                $jobIds = array_column($jobs, 'id');
+                
+                // Get counts grouped by job_listing_id
+                $db = \Config\Database::connect();
+                $counts = $db->table('job_applications')
+                    ->select('job_listing_id, COUNT(*) as count')
+                    ->whereIn('job_listing_id', $jobIds)
+                    ->groupBy('job_listing_id')
+                    ->get()
+                    ->getResultArray();
+                
+                // Convert to associative array
+                foreach ($counts as $count) {
+                    $applicationCounts[$count['job_listing_id']] = (int)$count['count'];
+                }
+            }
+            
+            // Add application count to each job object
+            foreach ($jobs as $job) {
+                $job->application_count = $applicationCounts[$job->id] ?? 0;
+            }
             
             return $this->response->setJSON([
                 'success' => true,

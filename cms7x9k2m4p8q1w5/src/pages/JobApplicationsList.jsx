@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Form, Badge } from 'react-bootstrap';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Container, Button, Form, Badge, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, Download, Trash, FileExcel } from 'react-bootstrap-icons';
 import { jobApplicationsAPI } from '../services/api';
 import PaginatedList from '../components/common/PaginatedList';
@@ -9,9 +9,20 @@ import ActionMenu from '../components/common/ActionMenu';
 import './JobApplicationsList.css';
 
 function JobApplicationsList() {
+  const { jobId } = useParams();
   const [searchParams] = useSearchParams();
-  const jobListingId = searchParams.get('job_listing_id');
   const navigate = useNavigate();
+  
+  // Handle migration from query params to URL segments
+  useEffect(() => {
+    const queryJobId = searchParams.get('job_listing_id');
+    if (queryJobId && !jobId) {
+      // Redirect from old query param format to new segment format
+      navigate(`/job-applications/job/${queryJobId}`, { replace: true });
+    }
+  }, [searchParams, jobId, navigate]);
+  
+  const jobListingId = jobId ? parseInt(jobId, 10) : null;
   
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -19,18 +30,32 @@ function JobApplicationsList() {
 
   useEffect(() => {
     loadApplications();
-  }, [jobListingId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [jobId]);
 
   const loadApplications = async () => {
     try {
       setLoading(true);
+      setNotification(null);
       const result = await jobApplicationsAPI.list(jobListingId);
-      setApplications(result.data || []);
+      console.log('Job Applications API Result:', result);
+      console.log('Job Listing ID:', jobListingId);
+      
+      // Handle different response structures
+      if (result && result.data) {
+        setApplications(Array.isArray(result.data) ? result.data : []);
+      } else if (Array.isArray(result)) {
+        setApplications(result);
+      } else {
+        setApplications([]);
+      }
     } catch (err) {
+      console.error('Error loading applications:', err);
       setNotification({
         message: err.message || 'Failed to load applications',
         variant: 'danger'
       });
+      setApplications([]);
     } finally {
       setLoading(false);
     }

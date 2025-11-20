@@ -21,16 +21,41 @@ class Home extends BaseController
 
     public function index(): string
     {
+        
         // Fetch carousel slides from database
         $carouselSlidesData = $this->carouselSlideModel->getActive();
         $carouselSlides = [];
+        
+        // Debug logging
+        log_message('error', 'Home::index - Found ' . count($carouselSlidesData) . ' active carousel slides');
+        
         foreach ($carouselSlidesData as $slide) {
+            // Handle highlighted_words - ensure it's an array
+            $highlightedWords = [];
+            if (isset($slide->highlighted_words)) {
+                if (is_string($slide->highlighted_words)) {
+                    $decoded = json_decode($slide->highlighted_words, true);
+                    if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                        $highlightedWords = $decoded;
+                    } else {
+                        // If not JSON, treat as comma-separated string
+                        $highlightedWords = array_filter(array_map('trim', explode(',', $slide->highlighted_words)));
+                    }
+                } elseif (is_array($slide->highlighted_words)) {
+                    $highlightedWords = $slide->highlighted_words;
+                }
+            }
+            
             $carouselSlides[] = [
-                'heading' => $slide->heading,
-                'highlightedWords' => $slide->highlighted_words ?? [],
-                'image' => $slide->image
+                'heading' => $slide->heading ?? '',
+                'highlightedWords' => $highlightedWords,
+                'image' => $slide->image ?? ''
             ];
+            
+            log_message('error', 'Home::index - Slide: ' . ($slide->heading ?? 'no heading') . ', Image: ' . ($slide->image ?? 'no image') . ', Highlighted words: ' . json_encode($highlightedWords));
         }
+        
+        log_message('error', 'Home::index - Final carousel slides array: ' . json_encode($carouselSlides));
 
         // Fetch impact stats from database
         $impactStatsData = $this->impactStatModel->getActive();

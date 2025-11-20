@@ -23,9 +23,10 @@ $routes->get('contact/', 'Contact::index');
 $routes->get('impact', 'Impact::index');
 $routes->get('impact/', 'Impact::index');
 
-// Success Stories page
-$routes->get('success-stories', 'SuccessStories::index');
-$routes->get('success-stories/', 'SuccessStories::index');
+// Success Stories page - Now handled by React SPA (catch-all route)
+// Commented out so React SPA handles it and loads data from database
+// $routes->get('success-stories', 'SuccessStories::index');
+// $routes->get('success-stories/', 'SuccessStories::index');
 
 // Initiatives pages
 $routes->get('entrepreneurship-development', 'Initiatives::entrepreneurship');
@@ -66,6 +67,17 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function($routes) 
     // Public API routes for job application submission (no auth required)
     $routes->post('job-applications', 'JobApplications::create');
     $routes->post('job-applications/upload-resume', 'JobApplications::uploadResume');
+    
+    // Public API routes for enquiry submission (no auth required)
+    $routes->post('enquiries', 'Enquiries::create');
+    
+    // Public API routes for media (no auth required)
+    $routes->get('media/categories', 'Media::getCategories');
+    $routes->get('media/by-category', 'Media::getByCategory');
+    
+    // Public API routes for success stories (no auth required)
+    $routes->get('success-stories', 'SuccessStories::index');
+    $routes->get('success-stories/slug/(:segment)', 'SuccessStories::getBySlug/$1');
 });
 
 // Admin CMS Routes
@@ -113,6 +125,7 @@ $routes->group('cms7x9k2m4p8q1w5', ['namespace' => 'App\Controllers\Admin'], fun
             $routes->post('success-stories', 'SuccessStories::create');
             $routes->put('success-stories/(:num)', 'SuccessStories::update/$1');
             $routes->delete('success-stories/(:num)', 'SuccessStories::delete/$1');
+            $routes->post('success-stories/upload-image', 'SuccessStories::uploadImage');
             
             // Media Items CRUD
             $routes->get('media-items', 'Media::index');
@@ -120,6 +133,16 @@ $routes->group('cms7x9k2m4p8q1w5', ['namespace' => 'App\Controllers\Admin'], fun
             $routes->post('media-items', 'Media::create');
             $routes->put('media-items/(:num)', 'Media::update/$1');
             $routes->delete('media-items/(:num)', 'Media::delete/$1');
+            $routes->post('media-items/upload', 'Media::uploadMultiple');
+            $routes->put('media-items/(:num)/caption-alt', 'Media::updateCaptionAlt/$1');
+            
+            // Media Categories CRUD
+            $routes->get('media-categories', 'MediaCategories::index');
+            $routes->get('media-categories/(:num)', 'MediaCategories::show/$1');
+            $routes->post('media-categories', 'MediaCategories::create');
+            $routes->put('media-categories/(:num)', 'MediaCategories::update/$1');
+            $routes->delete('media-categories/(:num)', 'MediaCategories::delete/$1');
+            $routes->post('media-categories/(:num)/toggle-active', 'MediaCategories::toggleActive/$1');
             
             // Settings CRUD
             $routes->get('settings', 'Settings::index');
@@ -158,6 +181,18 @@ $routes->group('cms7x9k2m4p8q1w5', ['namespace' => 'App\Controllers\Admin'], fun
             $routes->put('job-applications/(:num)', 'JobApplications::update/$1');
             $routes->delete('job-applications/(:num)', 'JobApplications::delete/$1');
             $routes->get('job-applications/(:num)/download-resume', 'JobApplications::downloadResume/$1');
+            
+            // Enquiries CRUD
+            $routes->get('enquiries', 'Enquiries::index');
+            $routes->get('enquiries/(:num)', 'Enquiries::show/$1');
+            $routes->put('enquiries/(:num)', 'Enquiries::update/$1');
+            $routes->delete('enquiries/(:num)', 'Enquiries::delete/$1');
+            $routes->get('enquiries/export/excel', 'Enquiries::exportExcel');
+            // Follow-ups
+            $routes->get('enquiries/(:num)/follow-ups', 'Enquiries::getFollowUps/$1');
+            $routes->post('enquiries/(:num)/follow-ups', 'Enquiries::addFollowUp/$1');
+            // Status history
+            $routes->get('enquiries/(:num)/status-history', 'Enquiries::getStatusHistory/$1');
         });
     });
     

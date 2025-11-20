@@ -87,6 +87,27 @@ function JobsList() {
       }
     },
     {
+      key: 'application_count',
+      label: 'Applications',
+      sortable: true,
+      render: (value, job) => (
+        <Button
+          variant="link"
+          className="p-0 text-decoration-none d-inline-flex align-items-center gap-1"
+          onClick={(e) => {
+            e.stopPropagation();
+            navigate(`/job-applications/job/${job.id}`);
+          }}
+          style={{ color: 'var(--cms-primary)' }}
+        >
+          <People size={18} />
+          <Badge bg="primary" className="ms-1">
+            {value || 0}
+          </Badge>
+        </Button>
+      )
+    },
+    {
       key: 'is_active',
       label: 'Status',
       sortable: true,
@@ -112,16 +133,6 @@ function JobsList() {
                 navigate(`/jobs/${job.id}`);
               },
               primary: true,
-              variant: 'primary'
-            },
-            {
-              label: 'View Applications',
-              icon: People,
-              onClick: (e) => {
-                e?.stopPropagation();
-                navigate(`/job-applications?job_listing_id=${job.id}`);
-              },
-              primary: false,
               variant: 'primary'
             },
             {

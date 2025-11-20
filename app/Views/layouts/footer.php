@@ -1,9 +1,10 @@
-<!-- Modal -->
+<!-- Modal - REMOVED: Replaced by React-Bootstrap EnquiryForm -->
+<!-- Old Bootstrap modal HTML commented out to prevent rendering -->
+<!--
 <div class="modal fade custom-modal" id="popupModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
             <div class="row g-0">
-                <!-- Form Section -->
                 <div class="col-lg-12 form-section">
                     <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
                     <h3>Help us know you better</h3>
@@ -13,7 +14,6 @@
                         <input type="text" class="form-control" placeholder="Company Name">
                         <input type="text" class="form-control" placeholder="Contact Number">
                         <input type="email" class="form-control" placeholder="Business Email">
-        
                         <p class="fw-semibold mt-3">In which area do you want to create impact?</p>
                         <div class="impact-options">
                             <div class="form-check form-check-inline">
@@ -33,7 +33,6 @@
                                 <label class="form-check-label small" for="education">Education</label>
                             </div>
                         </div>
-        
                         <a href="#" class="rounded-btn">Submit <span class="arrow"><i class="bi bi-arrow-right"></i></span></a>
                     </form>
                 </div>
@@ -41,7 +40,9 @@
         </div>
     </div>
 </div>
-<!-- Modal End-->
+-->
+<!-- Create a placeholder div to prevent JavaScript errors if code tries to access #popupModal -->
+<div id="popupModal" style="display: none !important; visibility: hidden !important; position: absolute !important; top: -9999px !important; left: -9999px !important; width: 0 !important; height: 0 !important; overflow: hidden !important; z-index: -9999 !important;" aria-hidden="true"></div>
 
 <!-- Footer Start -->
 <div class="container-fluid bg-dark footer mb-6 mb-0 py-6 wow fadeIn" data-wow-delay="0.1s">
@@ -117,6 +118,117 @@
 <script src="<?= lib_path('lightbox/js/lightbox.min.js') ?>" type="text/javascript"></script>
 <!-- Template Javascript -->
 <script src="<?= js_path('main.js') ?>"></script>
+
+<!-- Prevent old Bootstrap modal from showing (replaced by React-Bootstrap EnquiryForm) -->
+<script>
+  (function() {
+    function hideOldModal() {
+      // Hide all popupModal instances
+      const modals = document.querySelectorAll('#popupModal');
+      modals.forEach(modal => {
+        modal.style.cssText = 'display: none !important; visibility: hidden !important; opacity: 0 !important; z-index: -9999 !important; position: fixed !important; top: -9999px !important; left: -9999px !important; width: 0 !important; height: 0 !important; overflow: hidden !important;';
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+        modal.setAttribute('aria-modal', 'false');
+        
+        // Hide all children with aggressive styles
+        const children = modal.querySelectorAll('*');
+        children.forEach(child => {
+          child.style.cssText = 'display: none !important; visibility: hidden !important; opacity: 0 !important; width: 0 !important; height: 0 !important; overflow: hidden !important; position: absolute !important; top: -9999px !important; left: -9999px !important; z-index: -9999 !important;';
+        });
+      });
+      
+      // Remove backdrop
+      const backdrops = document.querySelectorAll('.modal-backdrop');
+      backdrops.forEach(backdrop => {
+        backdrop.remove();
+      });
+      
+      // Remove modal-open class
+      document.body.classList.remove('modal-open');
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }
+    
+    // Hide immediately
+    hideOldModal();
+    
+    // Hide on DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', hideOldModal);
+    } else {
+      hideOldModal();
+    }
+    
+    // Hide after a short delay to catch late renders
+    setTimeout(hideOldModal, 100);
+    setTimeout(hideOldModal, 500);
+    setTimeout(hideOldModal, 1000);
+    
+    // Prevent Bootstrap from showing the modal
+    if (window.bootstrap && window.bootstrap.Modal) {
+      // Override Modal.show() for popupModal
+      const originalShow = window.bootstrap.Modal.prototype.show;
+      window.bootstrap.Modal.prototype.show = function() {
+        if (this._element && this._element.id === 'popupModal') {
+          hideOldModal();
+          return;
+        }
+        return originalShow.call(this);
+      };
+    }
+    
+    // Watch for modal show events and prevent them
+    document.addEventListener('show.bs.modal', function(e) {
+      if (e.target && e.target.id === 'popupModal') {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        hideOldModal();
+        return false;
+      }
+    }, true);
+    
+    // Watch for shown events and hide immediately
+    document.addEventListener('shown.bs.modal', function(e) {
+      if (e.target && e.target.id === 'popupModal') {
+        hideOldModal();
+      }
+    }, true);
+    
+    // Continuously monitor and hide
+    setInterval(hideOldModal, 500);
+    
+    // Also remove modal HTML if it gets injected dynamically
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        mutation.addedNodes.forEach(function(node) {
+          if (node.nodeType === 1) { // Element node
+            // Check if the added node is the modal or contains it
+            if (node.id === 'popupModal' || node.querySelector && node.querySelector('#popupModal')) {
+              hideOldModal();
+              // Try to remove it entirely
+              const modalToRemove = node.id === 'popupModal' ? node : node.querySelector('#popupModal');
+              if (modalToRemove && modalToRemove.parentNode) {
+                // Don't remove the placeholder, but hide everything else
+                const formSection = modalToRemove.querySelector('.form-section');
+                if (formSection) {
+                  formSection.remove();
+                }
+              }
+            }
+          }
+        });
+      });
+    });
+    
+    // Start observing
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  })();
+</script>
 
 <!-- Job Application Form is handled by React SPA (loaded via / route) -->
 

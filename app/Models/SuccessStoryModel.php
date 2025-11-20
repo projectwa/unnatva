@@ -34,7 +34,7 @@ class SuccessStoryModel extends Model
     protected bool $updateOnlyChanged = true;
 
     protected array $casts = [
-        'metadata' => '?json', // Allow null values - ? must come before type
+        'metadata' => '?json', // Allow null values - CodeIgniter handles encoding/decoding
         'is_featured' => 'boolean',
         'is_published' => 'boolean',
         'sort_order' => 'integer',
@@ -50,6 +50,7 @@ class SuccessStoryModel extends Model
 
     // Validation
     protected $validationRules = [
+        'id' => 'permit_empty|integer',
         'slug' => 'required|max_length[191]|is_unique[success_stories.slug,id,{id}]',
         'category' => 'required|max_length[100]',
         'name' => 'required|max_length[255]',

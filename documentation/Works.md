@@ -1,0 +1,3 @@
+- Give option in CMS setting to set email id for job applicant form notification. After filling the job application form email should go to the email id set in the cms settings.
+- Give upload facility for Success Stories
+- Give upload facility for Media
